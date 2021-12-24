@@ -1,0 +1,23 @@
+ 
+AppBar(
+        elevation: 1,
+        automaticallyImplyLeading: false,
+        title: AppBarTitleWidget(),
+        actions: <Widget>[
+          _selectedIndex == 2
+              ? IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.add,
+                    color: kColorBlue,
+                  ),
+                )
+              : IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.notifications_none,
+                    color: kColorBlue,
+                  ),
+                ),
+        ],
+      ),
