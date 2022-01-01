@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import '../../../config/constants.dart';
-import '../home.dart';
-import '../,,/../../../config/routes.dart';
-import '../home.dart';
+import '../config/constants.dart';
+import '../screens/home/home.dart';
+import '../config/routes.dart';
+import '../screens/home/home.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  const CustomBottomNavigationBar({Key? key}) : super(key: key);
+class CBottomBar extends StatefulWidget {
+  const CBottomBar({Key? key}) : super(key: key);
 
   @override
-  _CustomBottomNavigationBarState createState() =>
-      _CustomBottomNavigationBarState();
+  _CBottomBarState createState() => _CBottomBarState();
 }
 
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
+class _CBottomBarState extends State<CBottomBar> {
   List<Widget> tabs = [
-    HomeScreen(),
     Center(child: Text("Search", style: TextStyle(color: Colors.white))),
     Center(child: Text("Profile", style: TextStyle(color: Colors.white))),
     Center(child: Text("Notification", style: TextStyle(color: Colors.white))),
@@ -50,8 +48,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   ),
                   onPressed: () {
                     print(currentPage);
-                    Navigator.pushReplacementNamed(
-                        context, HomeScreen.routeName);
+                    Navigator.pushReplacementNamed(context, Home.routeName);
                   },
                 ),
                 IconButton(
@@ -64,6 +61,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
                   ),
                   onPressed: () {
                     print(currentPage);
+                    setPage(2);
                   },
                 ),
                 SizedBox.shrink(),

@@ -1,61 +1,53 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
-import 'package:med_delivery_fyp/screens/home/components/title_with_more_btn.dart';
-import '../../config/size_config.dart';
-import '../../shared_widgets/shared_widgets.dart';
-import 'components/app_bar_title_widget.dart';
-import 'components/custom_navbar.dart';
-import 'components/home_header.dart';
-import 'components/pharm_near_you.dart';
-import 'components/popular_products.dart';
-import 'components/promotion_slides.dart';
+import 'package:med_delivery_fyp/screens/home/home_screen.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
+import 'package:med_delivery_fyp/shared_widgets/bottom_navigation_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+import 'components/app_bar_title_widget.dart';
+
+class Home extends StatefulWidget {
+  Home({Key? key}) : super(key: key);
+
   static String routeName = "/home";
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int selectedIndex = 0;
+
+  final List _screens = [
+    HomeScreen(),
+    PharmacyList(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _customAppBar(),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: getProportionateScreenHeight(20)),
-              HomeHeader(),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              PromotionSlide(),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              TitleWithMoreBtn(title: 'Pharmacies near you', press: () {}),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              PharmNearYou(),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              TitleWithMoreBtn(title: 'Popular Products', press: () {}),
-              SizedBox(height: getProportionateScreenWidth(10)),
-              PopularProducts(),
-              //PromotionSlider(),
-              //DiscountBanner(),
-              // Categories(),
-              //SpecialOffers(),
-              //SizedBox(height: getProportionateScreenWidth(30)),
-              // PopularProducts(press: (){
-              //   Navigator.pushNamed(context, ProductsList.routeName);
-              // },),
-              //SizedBox(height: getProportionateScreenWidth(30)),
-            ],
-          ),
-        ),
-      ),
+      body: _screens.elementAt(selectedIndex),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
         onPressed: () {},
         child: Icon(
           Icons.message_sharp,
           color: Colors.white,
-          size: 25,
+          size: 20,
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      bottomNavigationBar: CustomBottomNavigationBar(),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+      bottomNavigationBar: CustomBottomNavigationBar(
+        onTap: _onItemTapped,
+        selectedIndex: selectedIndex,
+      ),
     );
   }
 }

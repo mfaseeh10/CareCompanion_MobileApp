@@ -1,35 +1,14 @@
 import 'package:convex_bottom_bar/convex_bottom_bar.dart';
 import 'package:flutter/material.dart';
-// import 'package:grocery_app/screens/cart/cart_screen.dart';
-// import 'package:grocery_app/screens/home/home_screen.dart';
-// import 'package:grocery_app/screens/profile/profile_screen.dart';
-// import 'package:grocery_app/screens/wishlist/wishlist_screen.dart';
+import 'package:med_delivery_fyp/screens/home/home.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
+
 import '../../config/constants.dart';
 
-class CustomBottomNavigationBar extends StatefulWidget {
-  @override
-  _CustomBottomNavigationBarState createState() =>
-      _CustomBottomNavigationBarState();
-}
-
-class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
-  void _onItemTapped(int index) {
-    setState(() {
-      bottomIndex = index;
-    });
-    if (index == 0) {
-      // Navigator.pushReplacementNamed(context, HomeScreen.routeName);
-    }
-    if (index == 1) {
-      // Navigator.pushReplacementNamed(context, WishList.routeName);
-    }
-    if (index == 2) {
-      // Navigator.pushReplacementNamed(context, CartScreen.routeName);
-    }
-    if (index == 3) {
-      //Navigator.pushReplacementNamed(context, ProfileScreen.routeName);
-    }
-  }
+class CustomBottomNavigationBar extends StatelessWidget {
+  final selectedIndex;
+  ValueChanged<int> onTap;
+  CustomBottomNavigationBar({this.selectedIndex, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -38,9 +17,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       child: ConvexAppBar(
         style: TabStyle.textIn,
         height: 50,
-        backgroundColor: kPrimaryColor,
-        color: kPrimaryLightColor,
-        activeColor: kPrimaryBlackColor,
+        backgroundColor: Colors.white,
+        color: kPrimaryColor,
+        activeColor: kPrimaryColor,
         // curveSize: 70,
         // top: -20,
         items: [
@@ -48,45 +27,49 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
               activeIcon: Icon(
                 Icons.home,
                 size: 30,
+                color: kPrimaryColor,
               ),
               icon: Icon(
                 Icons.home,
-                color: kPrimaryLightColor,
+                color: kPrimaryGrayColor,
               ),
               title: 'Home'),
           TabItem(
               activeIcon: Icon(
-                Icons.favorite_border,
+                Icons.search,
                 size: 30,
+                color: kPrimaryColor,
               ),
               icon: Icon(
-                Icons.favorite_border,
-                color: kPrimaryLightColor,
+                Icons.search,
+                color: kPrimaryGrayColor,
               ),
-              title: 'Wish'),
+              title: 'Search'),
           TabItem(
               activeIcon: Icon(
-                Icons.card_travel,
+                Icons.notifications,
                 size: 30,
+                color: kPrimaryColor,
               ),
               icon: Icon(
-                Icons.card_travel,
-                color: kPrimaryLightColor,
+                Icons.notifications,
+                color: kPrimaryGrayColor,
               ),
-              title: 'Cart'),
+              title: 'Notification'),
           TabItem(
               activeIcon: Icon(
                 Icons.person,
                 size: 30,
+                color: kPrimaryColor,
               ),
               icon: Icon(
                 Icons.person,
-                color: kPrimaryLightColor,
+                color: kPrimaryGrayColor,
               ),
               title: 'Profile'),
         ],
         initialActiveIndex: bottomIndex,
-        onTap: _onItemTapped,
+        onTap: onTap,
       ),
     );
   }
@@ -95,18 +78,18 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 /// CLASS STYLE
 class Style extends StyleHook {
   @override
-  double get activeIconSize => 40;
+  double get activeIconSize => 30;
 
   @override
-  double get activeIconMargin => 10;
+  double get activeIconMargin => 15;
 
   @override
-  double get iconSize => 20;
+  double get iconSize => 15;
 
   @override
   TextStyle textStyle(Color color) {
     return TextStyle(
-        fontFamily: 'Rift Soft',
+        fontFamily: 'Muli',
         fontSize: 12.0,
         fontWeight: FontWeight.w600,
         color: color);

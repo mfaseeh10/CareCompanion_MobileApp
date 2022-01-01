@@ -63,8 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        Navigator.pushReplacementNamed(
-                            context, HomeScreen.routeName);
+                        Navigator.pushReplacementNamed(context, Home.routeName);
                       },
                     ),
                     Spacer(),

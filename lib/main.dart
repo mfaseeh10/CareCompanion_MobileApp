@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Care Companion',
       theme: theme(),
-      home: HomeScreen(),
+      home: Home(),
       initialRoute: SplashScreen.routeName,
       routes: routes,
     );
