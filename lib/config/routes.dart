@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
+import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 // import 'package:grocery_app/screens/categories/categories_screen.dart';
 // import 'package:grocery_app/screens/my_account/my_account_screen.dart';
 // import 'package:grocery_app/screens/notifications/notification_screen.dart';
@@ -30,6 +31,6 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   //HomeScreen.routeName: (context) => HomeScreen(),
   Home.routeName: (context) => Home(),
-
+  NotificationScreen.routeName: (context) => NotificationScreen(),
   PharmacyList.routeName: (context) => PharmacyList(),
 };

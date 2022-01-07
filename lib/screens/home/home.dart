@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
+import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
 import 'package:med_delivery_fyp/shared_widgets/bottom_navigation_bar.dart';
 
@@ -21,6 +22,7 @@ class _HomeState extends State<Home> {
   final List _screens = [
     HomeScreen(),
     PharmacyList(),
+    NotificationScreen(),
   ];
 
   void _onItemTapped(int index) {
