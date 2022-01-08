@@ -4,9 +4,9 @@ import '../../../config/size_config.dart';
 import '../../../shared_widgets/shared_widgets.dart';
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key? key,
-  }) : super(key: key);
+  final String text;
+
+  const HomeHeader({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SearchField(),
+          SearchField(
+            searchText: text,
+          ),
         ],
       ),
     );

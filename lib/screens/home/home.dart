@@ -1,8 +1,12 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
+import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import 'package:med_delivery_fyp/shared_widgets/bottom_navigation_bar.dart';
 
 import 'components/app_bar_title_widget.dart';
@@ -23,6 +27,7 @@ class _HomeState extends State<Home> {
     HomeScreen(),
     PharmacyList(),
     NotificationScreen(),
+    UserProfile(),
   ];
 
   void _onItemTapped(int index) {
@@ -33,8 +38,10 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
+
     return Scaffold(
-      appBar: _customAppBar(),
+      appBar: _customAppBar(context),
       body: _screens.elementAt(selectedIndex),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
@@ -54,7 +61,7 @@ class _HomeState extends State<Home> {
   }
 }
 
-PreferredSizeWidget? _customAppBar() {
+PreferredSizeWidget? _customAppBar(BuildContext ctx) {
   return AppBar(
     elevation: 0,
     automaticallyImplyLeading: false,

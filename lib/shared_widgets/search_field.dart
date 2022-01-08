@@ -3,9 +3,8 @@ import '../../../config/constants.dart';
 import '../../../config/size_config.dart';
 
 class SearchField extends StatelessWidget {
-  const SearchField({
-    Key? key,
-  }) : super(key: key);
+  final String searchText;
+  const SearchField({Key? key, required this.searchText}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class SearchField extends StatelessWidget {
             border: InputBorder.none,
             focusedBorder: InputBorder.none,
             enabledBorder: InputBorder.none,
-            hintText: "Search product",
+            hintText: searchText,
             suffixIcon: Icon(
               Icons.search,
               color: kPrimaryDarkColor,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/model/product.dart';
+import 'package:med_delivery_fyp/model/user.dart';
 
 class AppData {
   static List<Map<String, String>> splashData = [
@@ -48,4 +49,12 @@ class AppData {
           'https://medicalsuppliespk.com/wp-content/uploads/2020/10/Accu-Check-glucometer.jpeg'
         ]),
   ];
+
+  static User user_1 = User(
+    id: 123,
+    userEmail: 'faseeh@gmail.com',
+    username: 'mfaseeh10',
+    userImage:
+        'https://image.shutterstock.com/image-photo/close-portrait-young-happy-cheerful-260nw-609133178.jpg',
+  );
 }

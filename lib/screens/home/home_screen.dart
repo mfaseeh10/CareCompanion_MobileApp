@@ -14,12 +14,16 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
+
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
           children: [
             SizedBox(height: getProportionateScreenHeight(20)),
-            HomeHeader(),
+            HomeHeader(
+              text: 'Search Products',
+            ),
             SizedBox(height: getProportionateScreenWidth(10)),
             PromotionSlide(),
             SizedBox(height: getProportionateScreenWidth(10)),
