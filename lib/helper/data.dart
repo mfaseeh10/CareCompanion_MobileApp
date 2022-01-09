@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/model/notifications.dart';
+import 'package:med_delivery_fyp/model/order_detail.dart';
+import 'package:med_delivery_fyp/model/orders.dart';
 import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/model/user.dart';
 
@@ -56,5 +59,78 @@ class AppData {
     username: 'mfaseeh10',
     userImage:
         'https://image.shutterstock.com/image-photo/close-portrait-young-happy-cheerful-260nw-609133178.jpg',
+    address: 'plot sc111, 8th Street, Arizona',
   );
+
+  static List<OrderDetail> orderDetailData = [
+    OrderDetail(
+        id: '1',
+        productId: '1',
+        variantId: '1',
+        quantity: 2,
+        orderId: '1',
+        total: '200'),
+    OrderDetail(
+        id: '2',
+        productId: '4',
+        variantId: '4',
+        quantity: 1,
+        orderId: '2',
+        total: '200'),
+    OrderDetail(
+        id: '3',
+        productId: '4',
+        variantId: '5',
+        quantity: 1,
+        orderId: '2',
+        total: '400'),
+  ];
+
+  static List<Notifications> notifData = [
+    Notifications(
+        id: '1',
+        userId: '1',
+        title: '',
+        message: 'Weekly photos of supermarket products',
+        createdAt: DateTime.parse("2021-11-03 20:18:04Z").toString(),
+        modifiedAt: DateTime.parse("2021-11-11 20:18:04Z").toString(),
+        seen: false),
+    Notifications(
+        id: '2',
+        userId: '1',
+        title: '',
+        message: 'We help people connect with store \naround Pakistan',
+        createdAt: DateTime.parse("2021-11-11 20:18:04Z").toString(),
+        modifiedAt: DateTime.parse("2021-11-11 20:18:04Z").toString(),
+        seen: false),
+  ];
+
+  static List<Order> orderData = [
+    Order(
+        id: '1',
+        total: '280',
+        status: 'Delivered',
+        paymentMethod: 'COD',
+        shippingAddress: user_1.address,
+        billingAddress: user_1.address,
+        userId: '1',
+        orderDate: DateTime.now().toString(),
+        deliveryDate: '15/12/2021',
+        orderDetails: orderDetailData
+            .where((element) => element.orderId == '1')
+            .toList()),
+    Order(
+        id: '2',
+        total: '600',
+        status: 'Pending',
+        paymentMethod: 'COD',
+        shippingAddress: user_1.address,
+        billingAddress: user_1.address,
+        userId: '1',
+        orderDate: DateTime.now().toString(),
+        deliveryDate: '',
+        orderDetails: orderDetailData
+            .where((element) => element.orderId == '2')
+            .toList()),
+  ];
 }

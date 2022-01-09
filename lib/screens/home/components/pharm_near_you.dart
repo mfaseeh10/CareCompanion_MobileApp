@@ -149,7 +149,7 @@ class PharmNearYouCard extends StatelessWidget {
                           style: TextStyle(
                             fontWeight: FontWeight.w800,
                             fontFamily: 'muli',
-                            color: kPrimaryColor,
+                            color: kPrimaryGrayColor,
                           ),
                         ),
                         TextSpan(

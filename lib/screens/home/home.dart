@@ -8,6 +8,7 @@ import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart'
 import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import 'package:med_delivery_fyp/shared_widgets/bottom_navigation_bar.dart';
+import 'package:med_delivery_fyp/shared_widgets/custom_appbar.dart';
 
 import 'components/app_bar_title_widget.dart';
 
@@ -41,7 +42,11 @@ class _HomeState extends State<Home> {
     SizeConfig.init(context);
 
     return Scaffold(
-      appBar: _customAppBar(context),
+      appBar: MyAppBar(
+          pageNo: selectedIndex,
+          titleWidget: AppBarTitleWidget(
+            currentPage: selectedIndex,
+          )),
       body: _screens.elementAt(selectedIndex),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
@@ -61,26 +66,26 @@ class _HomeState extends State<Home> {
   }
 }
 
-PreferredSizeWidget? _customAppBar(BuildContext ctx) {
-  return AppBar(
-    elevation: 0,
-    automaticallyImplyLeading: false,
-    title: AppBarTitleWidget(),
-    actions: <Widget>[
-      IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.shopping_cart_outlined,
-          color: kPrimaryColor.withOpacity(0.8),
-        ),
-      ),
-      IconButton(
-        onPressed: () {},
-        icon: Icon(
-          Icons.notifications_none,
-          color: kPrimaryColor.withOpacity(0.8),
-        ),
-      ),
-    ],
-  );
-}
+// PreferredSizeWidget? _customAppBar() {
+//   return AppBar(
+//     elevation: 0,
+//     automaticallyImplyLeading: false,
+//     title: AppBarTitleWidget(),
+//     actions: <Widget>[
+//       IconButton(
+//         onPressed: () {},
+//         icon: Icon(
+//           Icons.shopping_cart_outlined,
+//           color: kPrimaryColor.withOpacity(0.8),
+//         ),
+//       ),
+//       IconButton(
+//         onPressed: () {},
+//         icon: Icon(
+//           Icons.notifications_none,
+//           color: kPrimaryColor.withOpacity(0.8),
+//         ),
+//       ),
+//     ],
+//   );
+// }

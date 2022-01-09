@@ -22,7 +22,7 @@ class PharmacyList extends StatelessWidget {
             SizedBox(height: getProportionateScreenHeight(10)),
             HomeHeader(text: 'Search Pharmacies'),
             SizedBox(height: getProportionateScreenHeight(20)),
-            TitleWithMoreBtn(title: 'Pharmacies LIST broo', press: () {}),
+            TitleWithMoreBtn(title: 'Pharmacies for you', press: () {}),
             SizedBox(height: getProportionateScreenWidth(10)),
             PharmNearYou(),
           ],

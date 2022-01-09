@@ -5,6 +5,8 @@ class User {
   final String username;
   final String userEmail;
   final String userImage;
+  final String address;
+
   // final List<Color> colors;
   // final double rating;
   // final double price;
@@ -17,5 +19,6 @@ class User {
     required this.username,
     required this.userEmail,
     required this.userImage,
+    required this.address,
   });
 }
