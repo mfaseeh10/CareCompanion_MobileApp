@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';

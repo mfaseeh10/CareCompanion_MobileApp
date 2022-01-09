@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/model/notifications.dart';
 import 'package:med_delivery_fyp/model/order_detail.dart';
 import 'package:med_delivery_fyp/model/orders.dart';
+import 'package:med_delivery_fyp/model/pharmacies.dart';
 import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/model/user.dart';
 
@@ -132,5 +133,31 @@ class AppData {
         orderDetails: orderDetailData
             .where((element) => element.orderId == '2')
             .toList()),
+  ];
+
+  static List pharmacyList = [
+    Pharmacies(
+        id: 1,
+        image:
+            'https://lh5.googleusercontent.com/p/AF1QipNKw2SWxxguHMWBU2j0oSPMKGRbiAKvHCdt9K7-',
+        name: 'Dvago',
+        deliveryCharge: 50,
+        distance: 3.4),
+    Pharmacies(
+      id: 2,
+      name: 'The Chemist',
+      distance: 0.9,
+      image:
+          'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/117592388_164394745157099_8893491325599511463_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHV2jqx84hnxZMhOjkIUf9inIUDCn_5LT-chQMKf_ktP7_DyufZ49fj0nrLdJY3Id6Y5TS0LfahF5SQUyZ5BFwC&_nc_ohc=GBpD5dkQwnkAX_czL4P&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8wchbiRV6DnNENMclSodxEOZm6lZEKvJzTK7VeH2vWcw&oe=61E65EBD',
+      deliveryCharge: 65,
+    ),
+    Pharmacies(
+      id: 3,
+      image:
+          'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/cp0/e15/q65/s320x320/132023170_103583375002197_1153214483022115650_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=dd9801&efg=eyJpIjoidCJ9&_nc_eui2=AeFzrsXd5asgdhxzKcF6HixesY9_dX0u576xj391fS7nviruf2yQ8M7Dmbb8uDh1z6bHK0KddKOuL3uDd_rvePg7&_nc_ohc=9kBqLlCCJjYAX93qcd3&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8Q2YlV3i2JTm8o8X9inrgiWw5IUEvQEWf9E101J70OHA&oe=61E3451F',
+      name: 'Lyfe Pharmacy',
+      deliveryCharge: 45,
+      distance: 5.4,
+    ),
   ];
 }
