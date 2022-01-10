@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import '../screens/splash/splash_screen.dart';
 import '../screens/pharmacy_list/phar_list.dart';
@@ -20,4 +21,5 @@ final Map<String, WidgetBuilder> routes = {
   NotificationScreen.routeName: (context) => NotificationScreen(),
   PharmacyList.routeName: (context) => PharmacyList(),
   UserProfile.routeName: (context) => UserProfile(),
+  PharmacyHome.routeName: (context) => PharmacyHome(),
 };

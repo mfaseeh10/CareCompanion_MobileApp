@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/model/pharmacies.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
 
 class PharmacyCard extends StatelessWidget {
   const PharmacyCard({Key? key, required this.pharcard
@@ -48,7 +49,13 @@ class PharmacyCard extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                PharmacyHome.routeName,
+                arguments: pharcard,
+              );
+            },
             child: Container(
               width: size.width,
               padding: EdgeInsets.all(myDefaultPadding / 2),

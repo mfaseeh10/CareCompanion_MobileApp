@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/helper/data.dart';
+import 'package:med_delivery_fyp/model/pharmacies.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
 import '../../../config/constants.dart';
 
 class PharmNearYou extends StatelessWidget {
@@ -8,87 +11,33 @@ class PharmNearYou extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List pharData = AppData.pharmacyList;
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
       child: Row(
-        children: [
-          PharmNearYouCard(
-            title: 'Dvago',
-            distance: 3.4,
-            //image: 'assets/images/img1.jpg',
-            image:
-                'https://lh5.googleusercontent.com/p/AF1QipNKw2SWxxguHMWBU2j0oSPMKGRbiAKvHCdt9K7-',
-            deliveryFee: 50,
-            press: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => DetailsScreen(
-              //       imgUrl:
-              //           'https://www.shoecarnival.com/dw/image/v2/BBSZ_PRD/on/demandware.static/-/Sites-scvl-master-catalog/default/dw1751e253/108346_217901_3.jpg',
-              //     ),
-              //   ),
-              // );
-            },
-          ),
-          PharmNearYouCard(
-            title: 'The Chemist',
-            distance: 0.9,
-            // image: 'assets/images/img2.jpg',
-            image:
-                'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/117592388_164394745157099_8893491325599511463_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHV2jqx84hnxZMhOjkIUf9inIUDCn_5LT-chQMKf_ktP7_DyufZ49fj0nrLdJY3Id6Y5TS0LfahF5SQUyZ5BFwC&_nc_ohc=GBpD5dkQwnkAX_czL4P&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8wchbiRV6DnNENMclSodxEOZm6lZEKvJzTK7VeH2vWcw&oe=61E65EBD',
-            deliveryFee: 65,
-            press: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => DetailsScreen(
-              //       imgUrl:
-              //           'https://www.shoecarnival.com/dw/image/v2/BBSZ_PRD/on/demandware.static/-/Sites-scvl-master-catalog/default/dwc2399abf/102361_235341_3.jpg',
-              //     ),
-              //   ),
-              // );
-            },
-          ),
-          PharmNearYouCard(
-            title: 'Lyfe Pharmacy',
-            distance: 2.8,
-            // image: 'assets/images/img2.jpg',
-            image:
-                'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/cp0/e15/q65/s320x320/132023170_103583375002197_1153214483022115650_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=dd9801&efg=eyJpIjoidCJ9&_nc_eui2=AeFzrsXd5asgdhxzKcF6HixesY9_dX0u576xj391fS7nviruf2yQ8M7Dmbb8uDh1z6bHK0KddKOuL3uDd_rvePg7&_nc_ohc=9kBqLlCCJjYAX93qcd3&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8Q2YlV3i2JTm8o8X9inrgiWw5IUEvQEWf9E101J70OHA&oe=61E3451F',
-            deliveryFee: 45,
-            press: () {
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) => DetailsScreen(
-              //       imgUrl:
-              //           'https://www.shoecarnival.com/dw/image/v2/BBSZ_PRD/on/demandware.static/-/Sites-scvl-master-catalog/default/dwc2399abf/102361_235341_3.jpg',
-              //     ),
-              //   ),
-              // );
-            },
-          ),
-        ],
-      ),
+          children:
+              pharData.map((e) => PharmNearYouCard(pharcard: e)).toList()),
     );
   }
 }
 
 class PharmNearYouCard extends StatelessWidget {
+  final Pharmacies pharcard;
+
   const PharmNearYouCard({
     Key? key,
-    required this.image,
-    required this.title,
-    required this.deliveryFee,
-    required this.distance,
-    required this.press,
+    required this.pharcard,
+    // required this.image,
+    // required this.title,
+    // required this.deliveryFee,
+    // required this.distance,
+    // required this.press,
   }) : super(key: key);
 
-  final String image, title;
-  final int deliveryFee;
-  final double distance;
-  final VoidCallback press;
+  // final String image, title;
+  // final int deliveryFee;
+  // final double distance;
+  // final VoidCallback press;
 
   @override
   Widget build(BuildContext context) {
@@ -113,13 +62,19 @@ class PharmNearYouCard extends StatelessWidget {
                 topRight: Radius.circular(10),
               ),
               child: Image.network(
-                image,
+                pharcard.image,
                 fit: BoxFit.fill,
               ),
             ),
           ),
           GestureDetector(
-            onTap: press,
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                PharmacyHome.routeName,
+                arguments: pharcard,
+              );
+            },
             child: Container(
               width: size.width,
               padding: EdgeInsets.all(myDefaultPadding / 2),
@@ -145,7 +100,7 @@ class PharmNearYouCard extends StatelessWidget {
                     text: TextSpan(
                       children: [
                         TextSpan(
-                          text: '$title\n'.toUpperCase(),
+                          text: '${pharcard.name}\n'.toUpperCase(),
                           style: TextStyle(
                             fontWeight: FontWeight.w800,
                             fontFamily: 'muli',
@@ -153,7 +108,7 @@ class PharmNearYouCard extends StatelessWidget {
                           ),
                         ),
                         TextSpan(
-                          text: '$distance km'.toUpperCase(),
+                          text: '${pharcard.distance} km'.toUpperCase(),
                           style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontFamily: 'muli',
@@ -165,7 +120,7 @@ class PharmNearYouCard extends StatelessWidget {
                   ),
                   //Spacer(),
                   Text(
-                    'Delivery fee: Rs.$deliveryFee',
+                    'Delivery fee: Rs.${pharcard.deliveryCharge}',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontFamily: 'muli',

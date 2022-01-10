@@ -4,6 +4,7 @@ import 'package:med_delivery_fyp/model/order_detail.dart';
 import 'package:med_delivery_fyp/model/orders.dart';
 import 'package:med_delivery_fyp/model/pharmacies.dart';
 import 'package:med_delivery_fyp/model/product.dart';
+import 'package:med_delivery_fyp/model/product_type.dart';
 import 'package:med_delivery_fyp/model/user.dart';
 
 class AppData {
@@ -19,39 +20,57 @@ class AppData {
     },
   ];
 
+  static List<ProductType> prodType = [
+    ProductType(id: 1, name: 'Medicine'),
+    ProductType(id: 2, name: 'Health Aid Equipment'),
+    ProductType(id: 3, name: 'Consumer Products'),
+  ];
+
   static List<Product> productList = [
     Product(
-        id: 1,
-        title: 'Cac1000 Plus Tab-Orange T 10\'s',
-        price: 180,
-        isFavourite: false,
-        images: [
-          'https://hol.com.pk/wp-content/uploads/2019/08/Cac-1000-Plus-Tab-1x10-s.jpg'
-        ]),
+      id: 1,
+      title: 'Cac1000 Plus Tab-Orange T 10\'s',
+      price: 180,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2019/08/Cac-1000-Plus-Tab-1x10-s.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+    ),
     Product(
-        id: 2,
-        title: 'PANADOL EXTRA TAB 100\'S ',
-        price: 200.00,
-        isFavourite: false,
-        images: [
-          'https://hol.com.pk/wp-content/uploads/2019/08/Panadol-extra-tab-100-s.jpg'
-        ]),
+      id: 2,
+      title: 'PANADOL EXTRA TAB 100\'S ',
+      price: 200.00,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2019/08/Panadol-extra-tab-100-s.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+    ),
     Product(
-        id: 3,
-        title: 'XYNOSINE NASAL SPRAY 15ML',
-        price: 45.50,
-        isFavourite: false,
-        images: [
-          'https://hol.com.pk/wp-content/uploads/2019/08/xynosine-nasal-spray-15ml-adult-ear-and-nosespray-292-1200x1200.jpg'
-        ]),
+      id: 3,
+      title: 'XYNOSINE NASAL SPRAY 15ML',
+      price: 45.50,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2019/08/xynosine-nasal-spray-15ml-adult-ear-and-nosespray-292-1200x1200.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: true,
+    ),
     Product(
-        id: 4,
-        title: ' Accu-Chek Active Blood Glucose Meter Kit ',
-        price: 3599.99,
-        isFavourite: false,
-        images: [
-          'https://medicalsuppliespk.com/wp-content/uploads/2020/10/Accu-Check-glucometer.jpeg'
-        ]),
+      id: 4,
+      title: ' Accu-Chek Active Blood Glucose Meter Kit ',
+      price: 3599.99,
+      isFavourite: false,
+      images: [
+        'https://medicalsuppliespk.com/wp-content/uploads/2020/10/Accu-Check-glucometer.jpeg'
+      ],
+      prodType: prodType[1],
+      isPrescriptionRequired: false,
+    ),
   ];
 
   static User user_1 = User(
@@ -137,12 +156,14 @@ class AppData {
 
   static List pharmacyList = [
     Pharmacies(
-        id: 1,
-        image:
-            'https://lh5.googleusercontent.com/p/AF1QipNKw2SWxxguHMWBU2j0oSPMKGRbiAKvHCdt9K7-',
-        name: 'Dvago',
-        deliveryCharge: 50,
-        distance: 3.4),
+      id: 1,
+      image:
+          'https://lh5.googleusercontent.com/p/AF1QipNKw2SWxxguHMWBU2j0oSPMKGRbiAKvHCdt9K7-',
+      name: 'Dvago',
+      deliveryCharge: 50,
+      distance: 3.4,
+      productList: [],
+    ),
     Pharmacies(
       id: 2,
       name: 'The Chemist',
@@ -150,6 +171,7 @@ class AppData {
       image:
           'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/117592388_164394745157099_8893491325599511463_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeHV2jqx84hnxZMhOjkIUf9inIUDCn_5LT-chQMKf_ktP7_DyufZ49fj0nrLdJY3Id6Y5TS0LfahF5SQUyZ5BFwC&_nc_ohc=GBpD5dkQwnkAX_czL4P&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8wchbiRV6DnNENMclSodxEOZm6lZEKvJzTK7VeH2vWcw&oe=61E65EBD',
       deliveryCharge: 65,
+      productList: [],
     ),
     Pharmacies(
       id: 3,
@@ -158,6 +180,7 @@ class AppData {
       name: 'Lyfe Pharmacy',
       deliveryCharge: 45,
       distance: 5.4,
+      productList: [],
     ),
   ];
 }
