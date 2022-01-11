@@ -34,15 +34,6 @@ class HomeScreen extends StatelessWidget {
             TitleWithMoreBtn(title: 'Popular Products', press: () {}),
             SizedBox(height: getProportionateScreenWidth(10)),
             PopularProducts(),
-            //PromotionSlider(),
-            //DiscountBanner(),
-            // Categories(),
-            //SpecialOffers(),
-            //SizedBox(height: getProportionateScreenWidth(30)),
-            // PopularProducts(press: (){
-            //   Navigator.pushNamed(context, ProductsList.routeName);
-            // },),
-            //SizedBox(height: getProportionateScreenWidth(30)),
           ],
         ),
       ),

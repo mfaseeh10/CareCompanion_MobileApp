@@ -5,30 +5,30 @@ import '../../../helper/data.dart';
 import '../../../config/constants.dart';
 import '../../../model/product.dart';
 
-class PopularProducts extends StatelessWidget {
-  PopularProducts({Key? key}) : super(key: key);
+class AllProducts extends StatelessWidget {
+  AllProducts({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10),
-      width: SizeConfig.screenWidth,
-      height: SizeConfig.screenHeight * .3,
-      child: GridView(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            childAspectRatio: 4 / 3,
-            mainAxisSpacing: 30,
-            crossAxisSpacing: 20),
-        padding: EdgeInsets.only(left: 10),
-        scrollDirection: Axis.horizontal,
-        children: AppData.productList
-            .map(
-              (product) => ProductCard(
-                product: product,
-              ),
-            )
-            .toList(),
+    return SingleChildScrollView(
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10),
+        width: SizeConfig.screenWidth * 0.95,
+        height: SizeConfig.screenHeight * 0.5,
+        child: GridView.count(
+          crossAxisCount: 2,
+          mainAxisSpacing: 20,
+          crossAxisSpacing: 20,
+          padding: EdgeInsets.only(left: 5, right: 5),
+          scrollDirection: Axis.vertical,
+          children: AppData.productList
+              .map(
+                (product) => ProductCard(
+                  product: product,
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }
@@ -65,7 +65,7 @@ class ProductCard extends StatelessWidget {
         ),
         margin: EdgeInsets.symmetric(vertical: 20),
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
           child: Stack(
             alignment: Alignment.center,
             children: <Widget>[
@@ -78,10 +78,6 @@ class ProductCard extends StatelessWidget {
                     child: Stack(
                       alignment: Alignment.centerRight,
                       children: <Widget>[
-                        CircleAvatar(
-                          radius: 30,
-                          backgroundColor: kPrimaryColor.withOpacity(0.5),
-                        ),
                         Image.network(
                           product.images[0],
                         )
@@ -106,19 +102,6 @@ class ProductCard extends StatelessWidget {
                     ),
                   ),
                 ],
-              ),
-              Positioned(
-                left: 0,
-                top: 0,
-                child: IconButton(
-                  icon: Icon(
-                    product.isFavourite
-                        ? Icons.favorite
-                        : Icons.favorite_border,
-                    color: product.isFavourite ? Colors.red : Colors.grey,
-                  ),
-                  onPressed: () {},
-                ),
               ),
             ],
           ),

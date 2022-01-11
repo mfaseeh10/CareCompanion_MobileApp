@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
+import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
+import 'package:med_delivery_fyp/screens/product_details/product_detail_screen.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import '../screens/splash/splash_screen.dart';
 import '../screens/pharmacy_list/phar_list.dart';
@@ -18,6 +20,7 @@ final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => SplashScreen(),
   //HomeScreen.routeName: (context) => HomeScreen(),
   Home.routeName: (context) => Home(),
+  ProductDetailScreen.routeName: (context) => ProductDetailScreen(),
   NotificationScreen.routeName: (context) => NotificationScreen(),
   PharmacyList.routeName: (context) => PharmacyList(),
   UserProfile.routeName: (context) => UserProfile(),

@@ -5,6 +5,7 @@ class Product {
   final int id;
   final String title;
   final String description;
+  final String sideEffects;
   final List<String> images;
   //final List<Color> colors;
   final ProductType prodType;
@@ -28,5 +29,6 @@ class Product {
     required this.title,
     required this.price,
     this.description = '',
+    this.sideEffects = '',
   });
 }

@@ -24,6 +24,10 @@ class AppData {
     ProductType(id: 1, name: 'Medicine'),
     ProductType(id: 2, name: 'Health Aid Equipment'),
     ProductType(id: 3, name: 'Consumer Products'),
+    ProductType(id: 4, name: 'Headache'),
+    ProductType(id: 5, name: 'Homeopathic'),
+    ProductType(id: 6, name: 'Fever'),
+    ProductType(id: 7, name: 'Joint Pain'),
   ];
 
   static List<Product> productList = [
@@ -37,6 +41,10 @@ class AppData {
       ],
       prodType: prodType[0],
       isPrescriptionRequired: false,
+      description:
+          "Active ingredient: Each tablet contains Paracetamol 500 mg. Other ingredients: Maize starch, potassium sorbate (E 202), purified talc, stearic acid, povidone, starch pregelatinised, hypromellose, triacetin.",
+      sideEffects:
+          'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
     ),
     Product(
       id: 2,
@@ -48,6 +56,10 @@ class AppData {
       ],
       prodType: prodType[0],
       isPrescriptionRequired: false,
+      description:
+          "Active ingredient: Each tablet contains Paracetamol 500 mg. Other ingredients: Maize starch, potassium sorbate (E 202), purified talc, stearic acid, povidone, starch pregelatinised, hypromellose, triacetin.",
+      sideEffects:
+          'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
     ),
     Product(
       id: 3,
@@ -59,6 +71,10 @@ class AppData {
       ],
       prodType: prodType[0],
       isPrescriptionRequired: true,
+      description:
+          "Active ingredient: Each tablet contains Paracetamol 500 mg. Other ingredients: Maize starch, potassium sorbate (E 202), purified talc, stearic acid, povidone, starch pregelatinised, hypromellose, triacetin.",
+      sideEffects:
+          'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
     ),
     Product(
       id: 4,
@@ -70,6 +86,10 @@ class AppData {
       ],
       prodType: prodType[1],
       isPrescriptionRequired: false,
+      description:
+          "Active ingredient: Each tablet contains Paracetamol 500 mg. Other ingredients: Maize starch, potassium sorbate (E 202), purified talc, stearic acid, povidone, starch pregelatinised, hypromellose, triacetin.",
+      sideEffects:
+          'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
     ),
   ];
 
@@ -154,7 +174,7 @@ class AppData {
             .toList()),
   ];
 
-  static List pharmacyList = [
+  static List<Pharmacies> pharmacyList = [
     Pharmacies(
       id: 1,
       image:
