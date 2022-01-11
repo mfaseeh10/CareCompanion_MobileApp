@@ -1,12 +1,14 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/screens/login/login_page.dart';
+import 'package:med_delivery_fyp/screens/walkthrough_sc/walkthrough_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../constants.dart';
-import '../routes/routes.dart';
-
 class SplashPage extends StatefulWidget {
+  static String routeName = "/splash";
+
   @override
   _SplashPageState createState() => _SplashPageState();
 }
@@ -21,9 +23,9 @@ class _SplashPageState extends State<SplashPage> {
   _loadScreen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if (prefs.getBool('is_logged_in') ?? false) {
-      Navigator.of(context).popAndPushNamed(Routes.home);
+      Navigator.of(context).popAndPushNamed(Walkthrough.routeName);
     } else {
-      Navigator.of(context).popAndPushNamed(Routes.login);
+      Navigator.of(context).popAndPushNamed(Walkthrough.routeName);
     }
   }
 

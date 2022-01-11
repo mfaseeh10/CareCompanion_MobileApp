@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/home/components/app_bar_title_widget.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -29,13 +30,16 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: pageNo == 3 ? Colors.white : kPrimaryColor.withOpacity(0.8),
           ),
         ),
-        IconButton(
-          onPressed: () {},
-          icon: Icon(
-            Icons.notifications_none,
-            color: pageNo == 3 ? Colors.white : kPrimaryColor.withOpacity(0.8),
-          ),
-        ),
+        // IconButton(
+        //   onPressed: () {},
+        //   icon: Icon(
+        //     Icons.notifications_none,
+        //     color: pageNo == 3 ? Colors.white : kPrimaryColor.withOpacity(0.8),
+        //   ),
+        // ),
+        SizedBox(
+          width: getProportionateScreenWidth(20),
+        )
       ],
     );
   }

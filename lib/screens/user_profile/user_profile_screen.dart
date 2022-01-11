@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/model/user.dart';
+import 'package:med_delivery_fyp/screens/about_terms_policy/about_us_screen.dart';
+import 'package:med_delivery_fyp/screens/about_terms_policy/policy_screen.dart';
+import 'package:med_delivery_fyp/screens/about_terms_policy/terms_screen.dart';
+import 'package:med_delivery_fyp/screens/login/login_page.dart';
+import 'package:med_delivery_fyp/screens/orders/orders_screen.dart';
 import '../../config/constants.dart';
 import '../../helper/data.dart';
 import '../../config/size_config.dart';
@@ -18,18 +23,24 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   //
 
-  Widget listTile({required IconData icon, required String title}) {
-    return Column(
-      children: [
-        Divider(
-          height: 1,
-        ),
-        ListTile(
-          leading: Icon(icon),
-          title: Text(title),
-          trailing: Icon(Icons.arrow_forward_ios),
-        )
-      ],
+  Widget listTile(
+      {required IconData icon,
+      required String title,
+      required VoidCallback onTap}) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Divider(
+            height: 1,
+          ),
+          ListTile(
+            leading: Icon(icon),
+            title: Text(title),
+            trailing: Icon(Icons.arrow_forward_ios),
+          )
+        ],
+      ),
     );
   }
 
@@ -106,22 +117,45 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                           ],
                         ),
-                        listTile(icon: Icons.shop_outlined, title: "My Orders"),
+                        listTile(
+                            icon: Icons.shop_outlined,
+                            title: "My Orders",
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, OrdersScreen.routeName);
+                            }),
                         listTile(
                             icon: Icons.location_on_outlined,
-                            title: "My Delivery Address"),
-                        listTile(
-                            icon: Icons.person_outline,
-                            title: "Refer A Friends"),
+                            title: "My Delivery Address",
+                            onTap: () {}),
                         listTile(
                             icon: Icons.file_copy_outlined,
-                            title: "Terms & Conditions"),
+                            title: "Terms & Conditions",
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, TermsConditionScreen.routeName);
+                            }),
                         listTile(
                             icon: Icons.policy_outlined,
-                            title: "Privacy Policy"),
-                        listTile(icon: Icons.add_chart, title: "About"),
+                            title: "Privacy Policy",
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, PolicyScreen.routeName);
+                            }),
                         listTile(
-                            icon: Icons.exit_to_app_outlined, title: "Log Out"),
+                            icon: Icons.add_chart,
+                            title: "About",
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, AboutUsScreen.routeName);
+                            }),
+                        listTile(
+                            icon: Icons.exit_to_app_outlined,
+                            title: "Log Out",
+                            onTap: () {
+                              Navigator.pushReplacementNamed(
+                                  context, LoginPage.routeName);
+                            }),
                       ],
                     ),
                   )

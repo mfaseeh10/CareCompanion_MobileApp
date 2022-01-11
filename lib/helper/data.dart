@@ -9,28 +9,59 @@ import 'package:med_delivery_fyp/model/user.dart';
 
 class AppData {
   static List<Map<String, String>> splashData = [
-    {"text": "Welcome here, Let’s shop!", "image": "assets/images/spl_1.png"},
+    {
+      "text": "Welcome here, Let’s buy medicines!",
+      "image": "assets/images/spl_1.png"
+    },
     {
       "text": "We help people connect with store \naround Pakistan",
       "image": "assets/images/spl_2.png"
     },
     {
-      "text": "We show the easy way to shop. \nJust stay at home with us",
+      "text":
+          "We show the easy way to shop all medicines you need. \nJust stay at home with us",
       "image": "assets/images/spl_3.png"
     },
   ];
 
   static List<ProductType> prodType = [
-    ProductType(id: 1, name: 'Medicine'),
-    ProductType(id: 2, name: 'Health Aid Equipment'),
-    ProductType(id: 3, name: 'Consumer Products'),
-    ProductType(id: 4, name: 'Headache'),
-    ProductType(id: 5, name: 'Homeopathic'),
-    ProductType(id: 6, name: 'Fever'),
-    ProductType(id: 7, name: 'Joint Pain'),
+    ProductType(id: 0, name: 'Medicine'),
+    ProductType(id: 1, name: 'Health Aid Equipment'),
+    ProductType(id: 2, name: 'Consumer Products'),
+    ProductType(id: 3, name: 'Headache'),
+    ProductType(id: 4, name: 'Homeopathic'),
+    ProductType(id: 5, name: 'Fever'),
+    ProductType(id: 6, name: 'Joint Pain'),
   ];
 
   static List<Product> productList = [
+    Product(
+      id: 4,
+      title: 'RISEK CAP 40 MG 14\'S ',
+      price: 210.00,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2021/07/Risek-Insta-Sugar-Free-Sachet-40mg-10-s.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+      description:
+          'Omeprazole is 5-methoxy-2-[[(4-methoxy-3, 5-dimethyl-2-pyridinyl) methyl] sulfinyl]-1H-benzimidazole.C17H19N3O3S.',
+      sideEffects: 'Headache or abdominal pain may occur',
+    ),
+    Product(
+      id: 0,
+      title: 'Hashmi Joshanda\'s',
+      price: 180,
+      isFavourite: false,
+      images: [
+        'https://cdn.shopify.com/s/files/1/0514/9422/4052/products/600-x-600_97f3164f-c167-497f-b947-22fe7b81c97b.png?v=1629456133'
+      ],
+      prodType: prodType[4],
+      isPrescriptionRequired: false,
+      description: "Homeopathic",
+      sideEffects: 'Might feel dizzy.',
+    ),
     Product(
       id: 1,
       title: 'Cac1000 Plus Tab-Orange T 10\'s',
@@ -63,6 +94,49 @@ class AppData {
     ),
     Product(
       id: 3,
+      title: 'Flagyl Tablets 400mg 20X10\'s ',
+      price: 25.00,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2019/08/016-1200x1200.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+      description: 'Metronidazole',
+      sideEffects:
+          'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
+    ),
+    Product(
+      id: 4,
+      title: 'RISEK CAP 40 MG 14\'S ',
+      price: 210.00,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2021/07/Risek-Insta-Sugar-Free-Sachet-40mg-10-s.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+      description:
+          'Omeprazole is 5-methoxy-2-[[(4-methoxy-3, 5-dimethyl-2-pyridinyl) methyl] sulfinyl]-1H-benzimidazole.C17H19N3O3S.',
+      sideEffects: 'Headache or abdominal pain may occur',
+    ),
+    Product(
+      id: 5,
+      title: 'Ibuprofen ',
+      price: 100.00,
+      isFavourite: false,
+      images: [
+        'https://hol.com.pk/wp-content/uploads/2020/03/Brufen-syrp-120ml-1s.jpg'
+      ],
+      prodType: prodType[0],
+      isPrescriptionRequired: false,
+      description:
+          "Active ingredient: Each tablet contains Paracetamol 500 mg. Other ingredients: Maize starch, potassium sorbate (E 202), purified talc, stearic acid, povidone, starch pregelatinised, hypromellose, triacetin.",
+      sideEffects:
+          'PEG 6000 Carbopol Ethyl Cellulose Lactose Talc Magnesium Stearate',
+    ),
+    Product(
+      id: 6,
       title: 'XYNOSINE NASAL SPRAY 15ML',
       price: 45.50,
       isFavourite: false,
@@ -77,7 +151,7 @@ class AppData {
           'It can cause agitation, back pain, blindness, dizziness, irritability, lack of co-ordination.',
     ),
     Product(
-      id: 4,
+      id: 7,
       title: ' Accu-Chek Active Blood Glucose Meter Kit ',
       price: 3599.99,
       isFavourite: false,
@@ -176,7 +250,25 @@ class AppData {
 
   static List<Pharmacies> pharmacyList = [
     Pharmacies(
+      id: 0,
+      image:
+          'https://scontent.fkhi17-1.fna.fbcdn.net/v/t39.30808-6/262562346_638998864179790_749326883565757996_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeGTvEWbSUa4e7wg3FmHU7n9eCm0m5JUGnB4KbSbklQacLs03oAxH8QrS3jZ4PbSKvQYtYWRXMeWQIrhIqewJg9O&_nc_ohc=hZ5qemTM9VAAX8v4dUG&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT9YvuRmtue2KAH6HhlKjyrO681Voktn5rVJIwIexm3ajw&oe=61E2E37D',
+      name: 'Dua Medicos',
+      deliveryCharge: 25,
+      distance: 6.5,
+      productList: [],
+    ),
+    Pharmacies(
       id: 1,
+      image:
+          'https://lh3.googleusercontent.com/p/AF1QipMqOpsnSBz6Z-9EdwPrbKf1JhF4RzqJkIQkGpOL=w1080-h608-p-no-v0',
+      name: 'Faizan Medicos',
+      deliveryCharge: 65,
+      distance: 9.0,
+      productList: [],
+    ),
+    Pharmacies(
+      id: 2,
       image:
           'https://lh5.googleusercontent.com/p/AF1QipNKw2SWxxguHMWBU2j0oSPMKGRbiAKvHCdt9K7-',
       name: 'Dvago',
@@ -185,7 +277,7 @@ class AppData {
       productList: [],
     ),
     Pharmacies(
-      id: 2,
+      id: 3,
       name: 'The Chemist',
       distance: 0.9,
       image:
@@ -194,7 +286,7 @@ class AppData {
       productList: [],
     ),
     Pharmacies(
-      id: 3,
+      id: 4,
       image:
           'https://scontent.fkhi17-1.fna.fbcdn.net/v/t1.6435-9/cp0/e15/q65/s320x320/132023170_103583375002197_1153214483022115650_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=dd9801&efg=eyJpIjoidCJ9&_nc_eui2=AeFzrsXd5asgdhxzKcF6HixesY9_dX0u576xj391fS7nviruf2yQ8M7Dmbb8uDh1z6bHK0KddKOuL3uDd_rvePg7&_nc_ohc=9kBqLlCCJjYAX93qcd3&_nc_ht=scontent.fkhi17-1.fna&oh=00_AT8Q2YlV3i2JTm8o8X9inrgiWw5IUEvQEWf9E101J70OHA&oe=61E3451F',
       name: 'Lyfe Pharmacy',

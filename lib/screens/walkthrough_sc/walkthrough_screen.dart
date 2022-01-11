@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/screens/login/login_page.dart';
 import '../../helper/data.dart';
 import '../home/home.dart';
 import 'package:med_delivery_fyp/shared_widgets/shared_widgets.dart';
@@ -9,14 +10,14 @@ import '../../config/constants.dart';
 import '../../config/size_config.dart';
 import 'components/splash_components.dart';
 
-class SplashScreen extends StatefulWidget {
-  static String routeName = "/splash";
+class Walkthrough extends StatefulWidget {
+  static String routeName = "/walkthrough";
 
   @override
-  _SplashScreenState createState() => _SplashScreenState();
+  _WalkthroughState createState() => _WalkthroughState();
 }
 
-class _SplashScreenState extends State<SplashScreen> {
+class _WalkthroughState extends State<Walkthrough> {
   int currentPage = 0;
 
   @override
@@ -63,7 +64,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
-                        Navigator.pushReplacementNamed(context, Home.routeName);
+                        Navigator.pushReplacementNamed(
+                            context, LoginPage.routeName);
                       },
                     ),
                     Spacer(),

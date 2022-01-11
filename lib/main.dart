@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/screens/splash_zero/splash_page.dart';
+import 'package:med_delivery_fyp/screens/walkthrough_sc/walkthrough_screen.dart';
 import '../config/routes.dart';
-import '../screens/splash/splash_screen.dart';
+
 import '../config/theme.dart';
 import '/screens/home/home.dart';
 
@@ -15,8 +17,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Care Companion',
       theme: theme(),
-      home: Home(),
-      initialRoute: SplashScreen.routeName,
+      home: Walkthrough(),
+      initialRoute: SplashPage.routeName,
       routes: routes,
     );
   }

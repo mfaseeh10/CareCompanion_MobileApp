@@ -63,3 +63,9 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: BorderSide(color: kTextColor),
   );
 }
+
+const kInputTextStyle = TextStyle(
+    fontSize: 14,
+    color: Color(0xffbcbcbc),
+    fontWeight: FontWeight.w300,
+    fontFamily: 'Muli');

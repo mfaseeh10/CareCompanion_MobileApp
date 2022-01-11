@@ -25,7 +25,7 @@ class CategoriesSlider extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: AppData.prodType
             .map(
-              (type) => ProductCard(
+              (type) => CategoryCard(
                 prodType: type,
               ),
             )
@@ -35,10 +35,10 @@ class CategoriesSlider extends StatelessWidget {
   }
 }
 
-class ProductCard extends StatelessWidget {
+class CategoryCard extends StatelessWidget {
   final ProductType prodType;
   //final ValueChanged<Product> onSelected;
-  ProductCard({
+  CategoryCard({
     Key? key,
     required this.prodType,
   }) : super(key: key);
@@ -46,13 +46,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(
-          context,
-          ProductDetailScreen.routeName,
-          // arguments: product,
-        );
-      },
+      onTap: () {},
       child: Container(
         decoration: BoxDecoration(
           border: Border.all(color: kPrimaryColor, style: BorderStyle.solid),

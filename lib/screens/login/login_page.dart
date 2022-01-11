@@ -1,13 +1,19 @@
-import 'package:doctor_appointment_booking/routes/routes.dart';
+//import 'package:doctor_appointment_booking/routes/routes.dart';
 import 'package:flutter/material.dart';
-
-import '../../components/custom_button.dart';
-import '../../components/custom_icons.dart';
-import '../../components/social_icon.dart';
-import '../../components/text_form_field.dart';
-import '../../constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/config/size_config.dart';
+import 'package:med_delivery_fyp/screens/forgot/forgot_password_page.dart';
+import 'package:med_delivery_fyp/screens/home/home.dart';
+import 'package:med_delivery_fyp/screens/signup/signup_page.dart';
+import 'package:med_delivery_fyp/shared_widgets/custom_button.dart';
+import 'package:med_delivery_fyp/shared_widgets/custom_icons.dart';
+import 'package:med_delivery_fyp/shared_widgets/social_icon.dart';
+import 'package:med_delivery_fyp/shared_widgets/text_form_field.dart';
 
 class LoginPage extends StatelessWidget {
+  static String routeName = "/login";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,47 +30,55 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Container(
-                        height: 200,
-                        padding: EdgeInsets.only(top: 30, left: 80),
-                        child: Image.asset(
-                          'assets/images/delivery.png',
-                          scale: 1,
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.only(left: 80),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: <Widget>[
-                            Text.rich(
-                              TextSpan(
-                                children: [
-                                  TextSpan(
-                                    text: 'Care',
-                                    style: TextStyle(
-                                      color: kPrimaryColor,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  TextSpan(
-                                    text: 'Companion',
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                      fontSize: 24,
-                                      fontWeight: FontWeight.w700,
-                                    ),
-                                  ),
-                                ],
-                              ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: getProportionateScreenHeight(250),
+                            width: getProportionateScreenWidth(200),
+                            child: Image.asset(
+                              'assets/images/delivery.png',
+                              scale: 1,
                             ),
-                          ],
-                        ),
-                        height: 50,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                Text.rich(
+                                  TextSpan(
+                                    children: [
+                                      TextSpan(
+                                        text: 'Care',
+                                        style: TextStyle(
+                                          color: kPrimaryColor,
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      TextSpan(
+                                        text: 'Companion',
+                                        style: TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 28,
+                                          fontWeight: FontWeight.w700,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(
-                        height: 20,
+                        height: getProportionateScreenHeight(30),
                       ),
                       Text(
                         'Sign in',
@@ -76,21 +90,21 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: 30,
+                        height: getProportionateScreenHeight(30),
                       ),
                       WidgetSignin(),
                       Center(
                         child: FlatButton(
                           onPressed: () {
                             Navigator.of(context)
-                                .pushNamed(Routes.forgotPassword);
+                                .pushNamed(ForgotPasswordPage.routeName);
                           },
                           child: Text(
                             'Forgot your password?',
                             style: TextStyle(
                               color: kPrimaryColor,
                               fontSize: 12,
-                              fontFamily: 'NunitoSans',
+                              fontFamily: 'Muli',
                             ),
                           ),
                         ),
@@ -109,7 +123,7 @@ class LoginPage extends StatelessWidget {
                           Text(
                             'Social login',
                             style: TextStyle(
-                              color: kColorDarkBlue,
+                              color: kPrimaryColor,
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                             ),
@@ -128,28 +142,24 @@ class LoginPage extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          SocialIcon(
-                            colors: [
-                              Color(0xff102397),
-                              Color(0xff187adf),
-                              Color(0xff00eaf8),
-                            ],
-                            iconData: CustomIcons.facebook,
-                            onPressed: () {},
+                          FaIcon(
+                            Icons.facebook,
+                            color: Colors.blue,
+                            size: 50.0,
                           ),
-                          SocialIcon(
-                            colors: [
-                              Color(0xffff4f38),
-                              Color(0xff1ff355d),
-                            ],
-                            iconData: CustomIcons.googlePlus,
-                            onPressed: () {},
+                          SizedBox(
+                            width: getProportionateScreenWidth(10),
+                          ),
+                          FaIcon(
+                            FontAwesomeIcons.googlePlusG,
+                            color: Colors.red,
+                            size: 50.0,
                           ),
                         ],
                       ),
                       Expanded(
                         child: SizedBox(
-                          height: 20,
+                          height: 5,
                         ),
                       ),
                       SafeArea(
@@ -168,7 +178,8 @@ class LoginPage extends StatelessWidget {
                             InkWell(
                               borderRadius: BorderRadius.circular(2),
                               onTap: () {
-                                Navigator.of(context).pushNamed(Routes.signup);
+                                Navigator.of(context)
+                                    .pushNamed(SignupPage.routeName);
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(5),
@@ -221,6 +232,7 @@ class _WidgetSigninState extends State<WidgetSignin> {
         CustomTextFormField(
           controller: _emailController,
           hintText: 'faseeh@gmail.com',
+          obscureText: false,
         ),
         SizedBox(
           height: 20,
@@ -239,7 +251,7 @@ class _WidgetSigninState extends State<WidgetSignin> {
         ),
         CustomButton(
           onPressed: () {
-            Navigator.of(context).popAndPushNamed(Routes.home);
+            Navigator.of(context).popAndPushNamed(Home.routeName);
           },
           text: 'Login',
         )

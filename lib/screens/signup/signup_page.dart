@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-
-import '../../components/custom_button.dart';
-import '../../components/text_form_field.dart';
-import '../../constants.dart';
-import '../../routes/routes.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/screens/login/login_page.dart';
+import 'package:med_delivery_fyp/shared_widgets/custom_button.dart';
+import 'package:med_delivery_fyp/shared_widgets/text_form_field.dart';
 
 enum Gender { male, female }
 
 class SignupPage extends StatelessWidget {
+  static String routeName = "/signup";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +33,7 @@ class SignupPage extends StatelessWidget {
                           color: Colors.black54,
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'NunitoSans',
+                          fontFamily: 'Muli',
                         ),
                       ),
                     ),
@@ -65,7 +65,7 @@ class SignupPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(2),
                               onTap: () {
                                 Navigator.of(context)
-                                    .popAndPushNamed(Routes.login);
+                                    .popAndPushNamed(LoginPage.routeName);
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(5),
@@ -128,6 +128,7 @@ class _WidgetSignupState extends State<WidgetSignup> {
               CustomTextFormField(
                 controller: _firstNameController,
                 hintText: 'John',
+                obscureText: false,
               ),
               SizedBox(
                 height: 20,
@@ -139,6 +140,7 @@ class _WidgetSignupState extends State<WidgetSignup> {
               CustomTextFormField(
                 controller: _lastNameController,
                 hintText: 'Doe',
+                obscureText: false,
               ),
               SizedBox(
                 height: 20,
@@ -159,7 +161,7 @@ class _WidgetSignupState extends State<WidgetSignup> {
                 groupValue: _gender,
                 onChanged: (gender) {
                   setState(() {
-                    _gender = gender;
+                    _gender = gender as Gender;
                   });
                 },
               ),
@@ -175,7 +177,7 @@ class _WidgetSignupState extends State<WidgetSignup> {
                 groupValue: _gender,
                 onChanged: (gender) {
                   setState(() {
-                    _gender = gender;
+                    _gender = gender as Gender;
                   });
                 },
               ),
@@ -198,6 +200,7 @@ class _WidgetSignupState extends State<WidgetSignup> {
               CustomTextFormField(
                 controller: _emailController,
                 hintText: 'bhr.tawfik@gmail.com',
+                obscureText: true,
               ),
               SizedBox(
                 height: 20,

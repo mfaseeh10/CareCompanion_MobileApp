@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
-import '../../components/custom_button.dart';
-import '../../components/text_form_field.dart';
-import '../../constants.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/config/size_config.dart';
+import 'package:med_delivery_fyp/shared_widgets/custom_button.dart';
+import 'package:med_delivery_fyp/shared_widgets/text_form_field.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
+  static String routeName = "/forgot";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,23 +25,16 @@ class ForgotPasswordPage extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Padding(
-                        padding: EdgeInsets.only(top: 60),
-                        child: Image.asset(
-                          'assets/images/logo.png',
-                          scale: 1.5,
-                        ),
-                      ),
                       SizedBox(
-                        height: 80,
+                        height: getProportionateScreenHeight(30),
                       ),
                       Text(
                         'Forgot password',
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Colors.black54,
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
-                          fontFamily: 'Poppins-Bold',
+                          fontFamily: 'Muli',
                         ),
                       ),
                       SizedBox(
@@ -55,7 +49,7 @@ class ForgotPasswordPage extends StatelessWidget {
                           child: Text(
                             'Login',
                             style: TextStyle(
-                              color: kColorBlue,
+                              color: kPrimaryColor,
                               fontSize: 12,
                               fontFamily: 'NunitoSans',
                             ),
@@ -97,6 +91,7 @@ class _WidgetForgotState extends State<WidgetForgot> {
         CustomTextFormField(
           controller: _emailController,
           hintText: 'bhr.tawfik@gmail.com',
+          obscureText: false,
         ),
         SizedBox(
           height: 35,
