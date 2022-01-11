@@ -5,7 +5,7 @@ var bottomIndex = 0;
 
 //const kPrimaryColor = Color(0xFF5F9EA0);
 const kPrimaryColor = Color(0xFF008080);
-const kPrimaryWhiteColor = Color(0xFFFFECDF);
+const kPrimaryWhiteColor = Color(0xFFFFFFFF);
 const kPrimaryGrayColor = Color(0xFF808080);
 
 const kPrimaryLightColor = Color(0xFF00b3b3);

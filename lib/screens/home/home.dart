@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
+import 'package:med_delivery_fyp/screens/messages/messages_page.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_list/phar_list.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
@@ -48,7 +49,12 @@ class _HomeState extends State<Home> {
       body: _screens.elementAt(selectedIndex),
       floatingActionButton: FloatingActionButton(
         backgroundColor: kPrimaryColor,
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(
+            context,
+            MessagesPage.routeName,
+          );
+        },
         child: Icon(
           Icons.message_sharp,
           color: Colors.white,

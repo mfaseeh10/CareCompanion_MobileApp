@@ -1,7 +1,11 @@
+import 'dart:js';
+
 import 'package:flutter/widgets.dart';
 import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
+import 'package:med_delivery_fyp/screens/messages/messages_detail_page.dart';
+import 'package:med_delivery_fyp/screens/messages/messages_page.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
 import 'package:med_delivery_fyp/screens/product_details/product_detail_screen.dart';
@@ -25,4 +29,6 @@ final Map<String, WidgetBuilder> routes = {
   PharmacyList.routeName: (context) => PharmacyList(),
   UserProfile.routeName: (context) => UserProfile(),
   PharmacyHome.routeName: (context) => PharmacyHome(),
+  MessagesDetailPage.routeName: (context) => MessagesDetailPage(),
+  MessagesPage.routeName: (context) => MessagesPage(),
 };

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-
-import '../../constants.dart';
-import '../../routes/routes.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
 
 class MessagesDetailPage extends StatefulWidget {
+  static String routeName = "/messageDetails";
+
   @override
   _MessagesDetailPageState createState() => _MessagesDetailPageState();
 }
@@ -13,6 +13,15 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_rounded,
+            color: kPrimaryDarkColor,
+          ),
+        ),
         title: Row(
           children: <Widget>[
             Container(
@@ -53,7 +62,7 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
             Text(
               'Tawfiq Bahri',
               style: TextStyle(
-                color: kColorDarkBlue,
+                color: kPrimaryColor,
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
               ),
@@ -65,23 +74,23 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
             onPressed: () {},
             icon: Icon(
               Icons.phone,
-              color: kColorBlue,
+              color: kPrimaryColor.withOpacity(0.8),
             ),
           ),
           IconButton(
             onPressed: () {},
             icon: Icon(
               Icons.videocam,
-              color: kColorBlue,
+              color: kPrimaryColor.withOpacity(0.8),
             ),
           ),
           IconButton(
             onPressed: () {
-              Navigator.of(context).pushNamed(Routes.doctorProfile);
+              // Navigator.of(context).pushNamed(Routes.doctorProfile);
             },
             icon: Icon(
               Icons.info,
-              color: kColorBlue,
+              color: kPrimaryColor.withOpacity(0.5),
             ),
           )
         ],
@@ -133,7 +142,7 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
               height: 50,
               decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(color: Colors.grey[200], width: 0.5),
+                  top: BorderSide(color: kPrimaryGrayColor, width: 0.5),
                 ),
               ),
               child: Row(
@@ -180,7 +189,7 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
                       ),
                       autofocus: false,
                       style: TextStyle(
-                        color: kColorDarkBlue,
+                        color: kPrimaryColor,
                       ),
                       cursorWidth: 1,
                     ),
@@ -190,7 +199,7 @@ class _MessagesDetailPageState extends State<MessagesDetailPage> {
                     icon: Icon(
                       Icons.send,
                       //color: Colors.grey[300],
-                      color: kColorBlue,
+                      color: kPrimaryColor.withOpacity(0.8),
                       size: 25,
                     ),
                   ),
@@ -208,7 +217,7 @@ class MessageItem extends StatelessWidget {
   final bool send;
   final String message;
 
-  const MessageItem({Key key, @required this.send, @required this.message})
+  const MessageItem({Key? key, required this.send, required this.message})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -244,12 +253,12 @@ class MessageItem extends StatelessWidget {
                 bottomLeft: Radius.circular(send ? 20 : 0),
                 bottomRight: Radius.circular(send ? 0 : 20),
               ),
-              color: send ? Color(0xffeaf2fe) : kColorBlue,
+              color: send ? Color(0xffeaf2fe) : kPrimaryColor.withOpacity(0.8),
             ),
             child: SelectableText(
               message,
               style: TextStyle(
-                color: send ? kColorDarkBlue : Colors.white,
+                color: send ? kPrimaryColor : Colors.white,
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
               ),

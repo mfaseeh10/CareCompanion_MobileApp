@@ -1,8 +1,10 @@
-import 'package:doctor_appointment_booking/constants.dart';
-import 'package:doctor_appointment_booking/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:med_delivery_fyp/config/constants.dart';
+import 'package:med_delivery_fyp/screens/messages/messages_detail_page.dart';
 
 class MessagesPage extends StatefulWidget {
+  static String routeName = "/messagePage";
+
   @override
   _MessagesPageState createState() => _MessagesPageState();
 }
@@ -12,73 +14,109 @@ class _MessagesPageState extends State<MessagesPage>
   @override
   Widget build(BuildContext context) {
     super.build(context);
-    return SingleChildScrollView(
-      scrollDirection: Axis.vertical,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: TextField(
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: kColorBlue, width: 0.5),
+    return Scaffold(
+      appBar: AppBar(
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back_rounded,
+            color: kPrimaryColor,
+          ),
+        ),
+        backgroundColor: kPrimaryWhiteColor,
+        title: Text(
+          'Messages',
+          style: TextStyle(
+              color: kPrimaryDarkColor,
+              fontFamily: 'Muli',
+              fontWeight: FontWeight.w700),
+        ),
+      ),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: TextField(
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide: BorderSide(
+                        color: kPrimaryColor.withOpacity(0.8), width: 0.5),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(50),
+                    borderSide:
+                        BorderSide(color: kPrimaryGrayColor, width: 0.5),
+                  ),
+                  filled: true,
+                  fillColor: Colors.grey[250],
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: 10,
+                    horizontal: 15,
+                  ),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.grey[400],
+                    size: 20,
+                  ),
+                  hintText: 'Search messages',
+                  hintStyle: TextStyle(
+                    color: Colors.grey[400],
+                  ),
                 ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(50),
-                  borderSide: BorderSide(color: Colors.grey[300], width: 0.5),
-                ),
-                filled: true,
-                fillColor: Colors.grey[250],
-                contentPadding: EdgeInsets.symmetric(
-                  vertical: 10,
-                  horizontal: 15,
-                ),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.grey[400],
-                  size: 20,
-                ),
-                hintText: 'Search messages',
-                hintStyle: TextStyle(
-                  color: Colors.grey[400],
-                ),
+                cursorWidth: 1,
+                maxLines: 1,
               ),
-              cursorWidth: 1,
-              maxLines: 1,
             ),
-          ),
-          MessageListItem(
-            onTap: () {
-              Navigator.of(context).pushNamed(Routes.chatDetail);
-            },
-            imagePath: 'assets/images/icon_doctor_1.png',
-            name: 'Tawfiq Bahri',
-            message: 'Your next appointment',
-            date: '11:05 AM',
-            unread: 10,
-            online: false,
-          ),
-          MessageListItem(
-            onTap: () {},
-            imagePath: 'assets/images/icon_doctor_3.png',
-            name: 'Joseph Bouroumat',
-            message: 'Don\'t forget your blood test',
-            date: '08:31 AM',
-            unread: 2,
-            online: true,
-          ),
-          MessageListItem(
-            onTap: () {},
-            imagePath: 'assets/images/icon_doctor_2.png',
-            name: 'Liza Anderson',
-            message: 'You: Good news 😃',
-            date: '03:48 PM',
-            unread: 0,
-            online: false,
-          ),
-        ],
+            MessageListItem(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  MessagesDetailPage.routeName,
+                );
+              },
+              imagePath: 'assets/images/icon_doctor_1.png',
+              name: 'Tawfiq Bahri',
+              message: 'Your next appointment',
+              date: '11:05 AM',
+              unread: 10,
+              online: false,
+            ),
+            MessageListItem(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  MessagesDetailPage.routeName,
+                );
+              },
+              imagePath: 'assets/images/icon_doctor_3.png',
+              name: 'Joseph Bouroumat',
+              message: 'Don\'t forget your blood test',
+              date: '08:31 AM',
+              unread: 2,
+              online: true,
+            ),
+            MessageListItem(
+              onTap: () {
+                Navigator.pushNamed(
+                  context,
+                  MessagesDetailPage.routeName,
+                );
+              },
+              imagePath: 'assets/images/icon_doctor_2.png',
+              name: 'Liza Anderson',
+              message: 'You: Good news 😃',
+              date: '03:48 PM',
+              unread: 0,
+              online: false,
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -88,7 +126,7 @@ class _MessagesPageState extends State<MessagesPage>
 }
 
 class MessageListItem extends StatelessWidget {
-  final Function onTap;
+  final VoidCallback onTap;
   final String imagePath;
   final String name;
   final String message;
@@ -97,14 +135,14 @@ class MessageListItem extends StatelessWidget {
   final bool online;
 
   const MessageListItem(
-      {Key key,
-      @required this.onTap,
-      @required this.imagePath,
-      @required this.name,
-      @required this.message,
-      @required this.date,
-      this.unread,
-      this.online})
+      {Key? key,
+      required this.onTap,
+      required this.imagePath,
+      required this.name,
+      required this.message,
+      required this.date,
+      required this.unread,
+      required this.online})
       : super(key: key);
 
   @override
@@ -160,7 +198,7 @@ class MessageListItem extends StatelessWidget {
                   Text(
                     name,
                     style: TextStyle(
-                      color: kColorDarkBlue,
+                      color: kPrimaryColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w700,
                     ),
@@ -185,7 +223,7 @@ class MessageListItem extends StatelessWidget {
                 Text(
                   date,
                   style: TextStyle(
-                    color: kColorBlue,
+                    color: kPrimaryColor.withOpacity(0.8),
                     fontSize: 10,
                     fontWeight: FontWeight.w400,
                   ),
@@ -202,7 +240,7 @@ class MessageListItem extends StatelessWidget {
                     ),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: kColorBlue,
+                      color: kPrimaryColor.withOpacity(0.8),
                     ),
                     child: Text(
                       unread.toString(),
