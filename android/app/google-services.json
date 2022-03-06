@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1005012616644",
+    "project_id": "care-companion-chat",
+    "storage_bucket": "care-companion-chat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1005012616644:android:3dd1e2959d764fa3ad5091",
+        "android_client_info": {
+          "package_name": "com.example.med_delivery_fyp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1005012616644-46ms8b0fi5t7q22j6sano6pemfiq0dsi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ4MBG1eydTjtG57Vogoh1cCkn-AzOBos"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1005012616644-46ms8b0fi5t7q22j6sano6pemfiq0dsi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
