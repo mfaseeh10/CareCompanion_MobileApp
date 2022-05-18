@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'size_config.dart';
 
+export 'color_constants.dart';
+export 'firestore_constants.dart';
+
 var bottomIndex = 0;
 
 //const kPrimaryColor = Color(0xFF5F9EA0);
