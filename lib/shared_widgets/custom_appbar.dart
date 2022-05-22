@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
+import 'package:med_delivery_fyp/screens/cart/cart_screen.dart';
 import 'package:med_delivery_fyp/screens/home/components/app_bar_title_widget.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -24,7 +25,12 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: titleWidget,
       actions: <Widget>[
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(
+              context,
+              CartScreen.routeName,
+            );
+          },
           icon: Icon(
             Icons.shopping_cart_outlined,
             color: pageNo == 3 ? Colors.white : kPrimaryColor.withOpacity(0.8),
