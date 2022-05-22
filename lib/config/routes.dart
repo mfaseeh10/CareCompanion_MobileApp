@@ -6,6 +6,7 @@ import 'package:med_delivery_fyp/screens/about_terms_policy/about_us_screen.dart
 import 'package:med_delivery_fyp/screens/about_terms_policy/policy_screen.dart';
 import 'package:med_delivery_fyp/screens/about_terms_policy/terms_screen.dart';
 import 'package:med_delivery_fyp/screens/cart/cart_screen.dart';
+import 'package:med_delivery_fyp/screens/checkout/checkout_screen.dart';
 import 'package:med_delivery_fyp/screens/forgot/forgot_password_page.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
 import 'package:med_delivery_fyp/screens/home/home_screen.dart';
@@ -46,4 +47,5 @@ final Map<String, WidgetBuilder> routes = {
   AboutUsScreen.routeName: (context) => AboutUsScreen(),
   TermsConditionScreen.routeName: (context) => TermsConditionScreen(),
   CartScreen.routeName: (context) => CartScreen(),
+  CheckoutScreen.routeName: (context) => CheckoutScreen(),
 };
