@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/helper/data.dart';
+import 'package:med_delivery_fyp/screens/order_placed/order_placed_screen.dart';
 // import 'payment_screen.dart';
 // import 'my_orders_screen.dart';
 
@@ -137,7 +138,7 @@ class LunchState extends State<CheckoutScreen> {
                 margin: EdgeInsets.only(top: 30.0),
                 child: RaisedButton(
                   onPressed: () {
-                    //  Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyOrdersScreen()));
+                    Navigator.pushNamed(context, OrderPlacedScreen.routeName);
                   }, // When Click on Button goto Login Screen
 
                   shape: RoundedRectangleBorder(

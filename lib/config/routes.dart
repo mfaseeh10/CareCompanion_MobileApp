@@ -22,6 +22,7 @@ import 'package:med_delivery_fyp/screens/splash_zero/splash_page.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import 'package:med_delivery_fyp/screens/walkthrough_sc/walkthrough_screen.dart';
 
+import '../screens/order_placed/order_placed_screen.dart';
 import '../screens/pharmacy_list/phar_list.dart';
 
 // import '../screens/sign_up/sign_up_screen.dart';
@@ -48,4 +49,5 @@ final Map<String, WidgetBuilder> routes = {
   TermsConditionScreen.routeName: (context) => TermsConditionScreen(),
   CartScreen.routeName: (context) => CartScreen(),
   CheckoutScreen.routeName: (context) => CheckoutScreen(),
+  OrderPlacedScreen.routeName: (context) => OrderPlacedScreen(),
 };

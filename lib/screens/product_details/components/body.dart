@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/product_title.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/reviews.dart';
+import 'package:med_delivery_fyp/screens/product_details/components/similar_products.dart';
 import 'package:med_delivery_fyp/shared_widgets/sticky_label.dart';
 
 import '../../../helper/data.dart';
 import '../../../shared_widgets/reviewUI.dart';
+import '../../../shared_widgets/title_with_more_btn.dart';
 import 'header_text.dart';
 import 'size_and_price.dart';
 
@@ -32,11 +34,6 @@ class Body extends StatelessWidget {
             ),
           ),
           ProductTitle(title: prod.title),
-
-          // Container(
-          //     width: SizeConfig.screenWidth,
-          //     height: SizeConfig.screenHeight * 0.015,
-          //     color: kPrimaryColor),
           SizeAndPriceRow(price: prod.price),
           HeaderAndText(header: 'About the Product', str: prod.description),
           HeaderAndText(header: 'Side Effects', str: prod.sideEffects),
@@ -44,7 +41,6 @@ class Body extends StatelessWidget {
             height: getProportionateScreenHeight(25),
             width: SizeConfig.screenWidth,
           ),
-
           Container(
             //height: SizeConfig.screenHeight * 0.1,
             width: SizeConfig.screenWidth,
@@ -70,7 +66,7 @@ class Body extends StatelessWidget {
                 ),
                 Container(
                   width: SizeConfig.screenWidth * 0.40,
-                  height: SizeConfig.screenHeight * 0.10,
+                  height: SizeConfig.screenHeight * 0.05,
                   //color: myPrimaryColor.withOpacity(0.3),
                   padding: EdgeInsets.all(myDefaultPadding / 4),
                   child: ElevatedButton(
@@ -87,6 +83,15 @@ class Body extends StatelessWidget {
               ],
             ),
           ),
+          SizedBox(
+            height: getProportionateScreenHeight(25),
+            width: SizeConfig.screenWidth,
+          ),
+          TitleWithMoreBtn(
+            title: 'Similar Products',
+            press: () {},
+          ),
+          SimilarProducts(),
           Container(
             height: getProportionateScreenHeight(50),
             child: Row(
