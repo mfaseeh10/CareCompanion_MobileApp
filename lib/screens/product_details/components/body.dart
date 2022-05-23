@@ -4,7 +4,11 @@ import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/model/product.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/product_title.dart';
+import 'package:med_delivery_fyp/screens/product_details/components/reviews.dart';
+import 'package:med_delivery_fyp/shared_widgets/sticky_label.dart';
 
+import '../../../helper/data.dart';
+import '../../../shared_widgets/reviewUI.dart';
 import 'header_text.dart';
 import 'size_and_price.dart';
 
@@ -27,7 +31,6 @@ class Body extends StatelessWidget {
                   image: NetworkImage(prod.images[0]), fit: BoxFit.fitWidth),
             ),
           ),
-
           ProductTitle(title: prod.title),
 
           // Container(
@@ -83,6 +86,52 @@ class Body extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+          Container(
+            height: getProportionateScreenHeight(50),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                StickyLabel(
+                  text: "Reviews",
+                  textColor: kPrimaryDarkColor,
+                ),
+                GestureDetector(
+                  onTap: () => Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Reviews(),
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: StickyLabel(
+                        text: "View All", textColor: kPrimaryGrayColor),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ListView.separated(
+            shrinkWrap: true,
+            padding: EdgeInsets.only(bottom: 8.0, top: 8.0),
+            itemCount: 2,
+            itemBuilder: (context, index) {
+              return ReviewUI(
+                name: AppData.reviewList[index].name,
+                date: AppData.reviewList[index].date,
+                comment: AppData.reviewList[index].comment,
+                rating: AppData.reviewList[index].rating,
+                onPressed: () => print("More Action $index"),
+                onTap: () {},
+                isLess: false,
+              );
+            },
+            separatorBuilder: (context, index) {
+              return Divider(
+                thickness: 1.0,
+                color: kPrimaryDarkColor,
+              );
+            },
           ),
         ],
       ),

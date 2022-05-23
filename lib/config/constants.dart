@@ -72,3 +72,8 @@ const kInputTextStyle = TextStyle(
     color: Color(0xffbcbcbc),
     fontWeight: FontWeight.w300,
     fontFamily: 'Muli');
+
+const kDefaultPadding = 24.0;
+const kLessPadding = 10.0;
+const kFixPadding = 16.0;
+const kLess = 4.0;

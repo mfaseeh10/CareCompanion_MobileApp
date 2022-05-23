@@ -52,6 +52,8 @@ dependencies:
   firebase_core: ^1.7.0
   firebase_storage: ^10.0.5
   firebase_messaging: ^10.0.8
+  smooth_star_rating_null_safety: ^1.0.4+2
+  percent_indicator: ^4.2.2
  
 
 
