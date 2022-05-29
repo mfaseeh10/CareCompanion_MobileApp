@@ -18,7 +18,7 @@ class ProductTitle extends StatelessWidget {
     return Container(
       padding: EdgeInsets.only(
           top: myDefaultPadding + myDefaultPadding * 0.5,
-          left: myDefaultPadding),
+          left: myDefaultPadding / 2),
       width: size.width,
       //color: Colors.amber,
       child: Column(

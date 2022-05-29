@@ -5,7 +5,7 @@ import '../config/constants.dart';
 
 class ReviewUI extends StatelessWidget {
   final String name, date, comment;
-  final double rating;
+
   final VoidCallback onTap, onPressed;
   final bool isLess;
   const ReviewUI({
@@ -13,7 +13,6 @@ class ReviewUI extends StatelessWidget {
     required this.name,
     required this.date,
     required this.comment,
-    required this.rating,
     required this.onTap,
     required this.isLess,
     required this.onPressed,
@@ -37,10 +36,10 @@ class ReviewUI extends StatelessWidget {
                 child: Text(
                   name,
                   style: TextStyle(
-                    fontFamily: 'Muli',
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  ),
+                      fontFamily: 'Muli',
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: kPrimaryDarkColor),
                 ),
               ),
               IconButton(
@@ -49,23 +48,15 @@ class ReviewUI extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 8.0),
+          SizedBox(height: 5.0),
           Row(
             children: [
-              SmoothStarRating(
-                starCount: 5,
-                rating: rating,
-                size: 24.0,
-                color: Colors.orange,
-                borderColor: Colors.orange,
-              ),
-              SizedBox(width: kFixPadding),
               Text(
                 date,
                 style: TextStyle(
-                  fontSize: 16.0,
-                  fontFamily: 'Muli',
-                ),
+                    fontSize: 16.0,
+                    fontFamily: 'Muli',
+                    color: kPrimaryLightColor),
               ),
             ],
           ),
@@ -77,7 +68,7 @@ class ReviewUI extends StatelessWidget {
                     comment,
                     style: TextStyle(
                       fontSize: 16.0,
-                      color: kPrimaryLightColor,
+                      color: kPrimaryGrayColor,
                       fontFamily: 'Muli',
                     ),
                   )

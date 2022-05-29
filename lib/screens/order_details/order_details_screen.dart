@@ -1,20 +1,29 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/helper/data.dart';
 import 'package:med_delivery_fyp/screens/order_placed/order_placed_screen.dart';
-// import 'payment_screen.dart';
+
+import '../../model/orders.dart';
 // import 'my_orders_screen.dart';
 
-class CheckoutScreen extends StatefulWidget {
-  static String routeName = "/checkout";
-
+class OrderDetailsScreen extends StatefulWidget {
+  static String routeName = "/order_details";
+  // final Order userOrder;
+  // const OrderDetailsScreen({
+  //   Key? key,
+  //   required this.userOrder,
+  // }) : super(key: key);
   @override
   State<StatefulWidget> createState() => LunchState();
 }
 
-class LunchState extends State<CheckoutScreen> {
+class LunchState extends State<OrderDetailsScreen> {
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Order;
+
     return Scaffold(
         appBar: AppBar(
           backgroundColor: kPrimaryColor,
@@ -30,14 +39,14 @@ class LunchState extends State<CheckoutScreen> {
             ),
           ),
           title: Text(
-            "Checkout",
+            "Order Detail",
             style: TextStyle(color: kPrimaryWhiteColor, fontFamily: "Muli"),
           ),
         ),
-        body: initScreen());
+        body: initScreen(args));
   }
 
-  initScreen() {
+  initScreen(Order order) {
     return new Container(
         child: Wrap(
       children: <Widget>[
@@ -61,7 +70,7 @@ class LunchState extends State<CheckoutScreen> {
               Container(
                   padding: EdgeInsets.only(top: 20.0, left: 10.0, bottom: 10.0),
                   child: Text(
-                    AppData.user_1.address,
+                    order.billingAddress,
                     style: TextStyle(color: Colors.black, fontSize: 20.0),
                   )),
             ],
@@ -73,14 +82,14 @@ class LunchState extends State<CheckoutScreen> {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  "Cost: ",
+                  "Order id: ",
                   style: TextStyle(
                     fontSize: 18.0,
                   ),
                 ),
               ),
               Text(
-                "160.00",
+                order.id,
                 style: TextStyle(
                   color: kPrimaryBlackColor,
                   fontSize: 18.0,
@@ -95,14 +104,14 @@ class LunchState extends State<CheckoutScreen> {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  "Discount: ",
+                  "Order date: ",
                   style: TextStyle(
                     fontSize: 18.0,
                   ),
                 ),
               ),
               Text(
-                "10%",
+                order.orderDate.substring(0, 16),
                 style: TextStyle(
                   color: kPrimaryBlackColor,
                   fontSize: 18.0,
@@ -117,14 +126,36 @@ class LunchState extends State<CheckoutScreen> {
             children: <Widget>[
               Expanded(
                 child: Text(
-                  "Shipping: ",
+                  "Status: ",
                   style: TextStyle(
                     fontSize: 18.0,
                   ),
                 ),
               ),
               Text(
-                "10.00",
+                order.status,
+                style: TextStyle(
+                  color: kPrimaryBlackColor,
+                  fontSize: 18.0,
+                ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(left: 30.0, right: 30.0, top: 10.0),
+          child: Row(
+            children: <Widget>[
+              Expanded(
+                child: Text(
+                  "Payment Method: ",
+                  style: TextStyle(
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
+              Text(
+                order.paymentMethod,
                 style: TextStyle(
                   color: kPrimaryBlackColor,
                   fontSize: 18.0,
@@ -144,7 +175,7 @@ class LunchState extends State<CheckoutScreen> {
                 ),
               ),
               Text(
-                "170.00",
+                "Rs.${order.total}",
                 style: TextStyle(
                     color: kPrimaryBlackColor,
                     fontSize: 18.0,
@@ -153,35 +184,6 @@ class LunchState extends State<CheckoutScreen> {
             ],
           ),
         ),
-        Center(
-            child: Container(
-                margin: EdgeInsets.only(top: 30.0),
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, OrderPlacedScreen.routeName);
-                  }, // When Click on Button goto Login Screen
-
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(80.0)),
-                  padding: const EdgeInsets.all(0.0),
-                  child: Ink(
-                    decoration: BoxDecoration(
-                        gradient: kPrimaryGradientColor,
-                        borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                    child: Container(
-                      constraints: const BoxConstraints(
-                          maxWidth: 330.0,
-                          minHeight: 40.0), // min sizes for Material buttons
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Checkout',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                            color: kPrimaryWhiteColor, fontSize: 18.0),
-                      ),
-                    ),
-                  ),
-                ))),
       ],
     ));
   }

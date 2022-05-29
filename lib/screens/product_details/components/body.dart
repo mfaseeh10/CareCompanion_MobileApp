@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/model/product.dart';
+import 'package:med_delivery_fyp/screens/pharmacy_list/components/section_header.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/product_title.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/reviews.dart';
 import 'package:med_delivery_fyp/screens/product_details/components/similar_products.dart';
@@ -45,51 +46,31 @@ class Body extends StatelessWidget {
             //height: SizeConfig.screenHeight * 0.1,
             width: SizeConfig.screenWidth,
             //color: myPrimaryColor.withOpacity(0.3),
-            child: Row(
-              //mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                ElevatedButton(
+            child: Container(
+              width: SizeConfig.screenWidth,
+              height: SizeConfig.screenHeight * 0.08,
+              alignment: Alignment.center,
+              padding: EdgeInsets.all(myDefaultPadding / 4),
+              child: ElevatedButton(
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                      shape: CircleBorder(), primary: kPrimaryDarkColor),
-                  child: Container(
-                    width: SizeConfig.screenWidth * 0.1,
-                    height: SizeConfig.screenHeight * 0.07,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(shape: BoxShape.circle),
-                    child: Icon(
-                      Icons.favorite_outline_sharp,
-                      color: Colors.white,
+                    fixedSize: Size(SizeConfig.screenWidth * 0.7,
+                        SizeConfig.screenHeight * 0.05),
+                    //fixedSize: size * 0.2,
+                    primary: kPrimaryColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
                   ),
-                  onPressed: () {},
-                ),
-                Container(
-                  width: SizeConfig.screenWidth * 0.40,
-                  height: SizeConfig.screenHeight * 0.05,
-                  //color: myPrimaryColor.withOpacity(0.3),
-                  padding: EdgeInsets.all(myDefaultPadding / 4),
-                  child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        //fixedSize: size * 0.2,
-                        primary: kPrimaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30.0),
-                        ),
-                      ),
-                      child: Text('Add to cart')),
-                ),
-              ],
+                  child: Text('Add to cart')),
             ),
           ),
           SizedBox(
             height: getProportionateScreenHeight(25),
             width: SizeConfig.screenWidth,
           ),
-          TitleWithMoreBtn(
+          SectionHeader(
             title: 'Similar Products',
-            press: () {},
           ),
           SimilarProducts(),
           Container(
@@ -125,7 +106,6 @@ class Body extends StatelessWidget {
                 name: AppData.reviewList[index].name,
                 date: AppData.reviewList[index].date,
                 comment: AppData.reviewList[index].comment,
-                rating: AppData.reviewList[index].rating,
                 onPressed: () => print("More Action $index"),
                 onTap: () {},
                 isLess: false,

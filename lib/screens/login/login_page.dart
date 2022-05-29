@@ -109,54 +109,6 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: Divider(
-                              color: Colors.grey,
-                              endIndent: 20,
-                            ),
-                          ),
-                          Text(
-                            'Social login',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 14,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                          Expanded(
-                            child: Divider(
-                              color: Colors.grey,
-                              indent: 20,
-                            ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          FaIcon(
-                            Icons.facebook,
-                            color: Colors.blue,
-                            size: 50.0,
-                          ),
-                          SizedBox(
-                            width: getProportionateScreenWidth(10),
-                          ),
-                          FaIcon(
-                            FontAwesomeIcons.googlePlusG,
-                            color: Colors.red,
-                            size: 50.0,
-                          ),
-                        ],
-                      ),
                       Expanded(
                         child: SizedBox(
                           height: 5,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/screens/home/components/title_with_more_btn.dart';
+import 'package:med_delivery_fyp/screens/products_all/all_product_screen.dart';
 import '../../config/size_config.dart';
 
 //import 'components/custom_navbar.dart';
@@ -31,7 +32,11 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: getProportionateScreenWidth(10)),
             PharmNearYou(),
             SizedBox(height: getProportionateScreenWidth(10)),
-            TitleWithMoreBtn(title: 'Popular Products', press: () {}),
+            TitleWithMoreBtn(
+                title: 'Popular Products',
+                press: () {
+                  Navigator.pushNamed(context, AllProductsScreen.routeName);
+                }),
             SizedBox(height: getProportionateScreenWidth(10)),
             PopularProducts(),
           ],

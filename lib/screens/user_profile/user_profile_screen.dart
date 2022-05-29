@@ -5,6 +5,7 @@ import 'package:med_delivery_fyp/screens/about_terms_policy/policy_screen.dart';
 import 'package:med_delivery_fyp/screens/about_terms_policy/terms_screen.dart';
 import 'package:med_delivery_fyp/screens/login/login_page.dart';
 import 'package:med_delivery_fyp/screens/orders/orders_screen.dart';
+import 'package:med_delivery_fyp/screens/user_profile/user_account_details_screen.dart';
 import '../../config/constants.dart';
 import '../../helper/data.dart';
 import '../../config/size_config.dart';
@@ -32,7 +33,7 @@ class _UserProfileState extends State<UserProfile> {
       child: Column(
         children: [
           Divider(
-            height: 1,
+            height: 2,
           ),
           ListTile(
             leading: Icon(icon),
@@ -55,7 +56,7 @@ class _UserProfileState extends State<UserProfile> {
               Column(
                 children: [
                   Container(
-                    height: 80,
+                    height: 40,
                     //color: kPrimaryColor,
                     decoration: BoxDecoration(
                       color: kPrimaryColor,
@@ -76,7 +77,7 @@ class _UserProfileState extends State<UserProfile> {
                           children: [
                             Container(
                               width: getProportionateScreenWidth(250),
-                              height: 80,
+                              height: 70,
                               padding: EdgeInsets.only(left: 20),
                               child: Row(
                                 mainAxisAlignment:
@@ -126,21 +127,10 @@ class _UserProfileState extends State<UserProfile> {
                             }),
                         listTile(
                             icon: Icons.location_on_outlined,
-                            title: "My Delivery Address",
-                            onTap: () {}),
-                        listTile(
-                            icon: Icons.file_copy_outlined,
-                            title: "Terms & Conditions",
+                            title: "My Account",
                             onTap: () {
                               Navigator.pushNamed(
-                                  context, TermsConditionScreen.routeName);
-                            }),
-                        listTile(
-                            icon: Icons.policy_outlined,
-                            title: "Privacy Policy",
-                            onTap: () {
-                              Navigator.pushNamed(
-                                  context, PolicyScreen.routeName);
+                                  context, UserAccountDetailsScreen.routeName);
                             }),
                         listTile(
                             icon: Icons.add_chart,
@@ -162,7 +152,7 @@ class _UserProfileState extends State<UserProfile> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 40, left: 30),
+                padding: const EdgeInsets.only(top: 20, left: 30),
                 child: CircleAvatar(
                   radius: 50,
                   backgroundColor: kPrimaryColor,

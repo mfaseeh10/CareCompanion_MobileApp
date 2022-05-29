@@ -14,11 +14,14 @@ import 'package:med_delivery_fyp/screens/login/login_page.dart';
 import 'package:med_delivery_fyp/screens/messages/messages_detail_page.dart';
 import 'package:med_delivery_fyp/screens/messages/messages_page.dart';
 import 'package:med_delivery_fyp/screens/notifications/notification_screen.dart';
+import 'package:med_delivery_fyp/screens/order_details/order_details_screen.dart';
 import 'package:med_delivery_fyp/screens/orders/orders_screen.dart';
 import 'package:med_delivery_fyp/screens/pharmacy_home_screen/pharm_home_screen.dart';
 import 'package:med_delivery_fyp/screens/product_details/product_detail_screen.dart';
+import 'package:med_delivery_fyp/screens/products_all/all_product_screen.dart';
 import 'package:med_delivery_fyp/screens/signup/signup_page.dart';
 import 'package:med_delivery_fyp/screens/splash_zero/splash_page.dart';
+import 'package:med_delivery_fyp/screens/user_profile/user_account_details_screen.dart';
 import 'package:med_delivery_fyp/screens/user_profile/user_profile_screen.dart';
 import 'package:med_delivery_fyp/screens/walkthrough_sc/walkthrough_screen.dart';
 
@@ -50,4 +53,7 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => CartScreen(),
   CheckoutScreen.routeName: (context) => CheckoutScreen(),
   OrderPlacedScreen.routeName: (context) => OrderPlacedScreen(),
+  AllProductsScreen.routeName: (context) => AllProductsScreen(),
+  UserAccountDetailsScreen.routeName: (context) => UserAccountDetailsScreen(),
+  OrderDetailsScreen.routeName: (context) => OrderDetailsScreen(),
 };

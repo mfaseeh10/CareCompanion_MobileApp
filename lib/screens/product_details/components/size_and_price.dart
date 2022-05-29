@@ -15,27 +15,41 @@ class SizeAndPriceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Container(
-          height: SizeConfig.screenHeight * 0.1,
-          width: SizeConfig.screenWidth / 2,
-          padding: EdgeInsets.all(myDefaultPadding),
-          child: SizeDropdown(),
-        ),
-        Padding(
-          padding: EdgeInsets.all(myDefaultPadding),
-          child: Text(
-            'Rs.$price',
-            style: TextStyle(
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              color: kPrimaryGrayColor.withOpacity(0.8),
+    return Container(
+      width: SizeConfig.screenWidth,
+      padding: EdgeInsets.only(
+          left: myDefaultPadding / 4, right: myDefaultPadding / 4),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Container(
+            height: SizeConfig.screenHeight * 0.1,
+            width: SizeConfig.screenWidth * 0.35,
+            padding: EdgeInsets.only(
+                top: myDefaultPadding,
+                bottom: myDefaultPadding,
+                left: myDefaultPadding / 2),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.only(
+                    top: myDefaultPadding / 2, left: myDefaultPadding),
+                hintText: 'Quantity',
+              ),
             ),
           ),
-        )
-      ],
+          Padding(
+            padding: EdgeInsets.all(myDefaultPadding),
+            child: Text(
+              'Rs.$price',
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: kPrimaryGrayColor.withOpacity(0.8),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

@@ -170,6 +170,8 @@ class AppData {
 
   static User user_1 = User(
     id: 123,
+    firstName: 'Faeeh',
+    lastName: 'Saleem',
     userEmail: 'faseeh@gmail.com',
     username: 'mfaseeh10',
     userImage:
