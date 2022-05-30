@@ -7,15 +7,21 @@ class Notifications {
   late String modifiedAt;
   late String createdAt;
 
-  Notifications({required this.id, required this.userId, required this.title, required this.message, required this.seen, required this.modifiedAt,
-    required this.createdAt});
+  Notifications(
+      {required this.id,
+      required this.userId,
+      required this.title,
+      required this.message,
+      required this.seen,
+      required this.modifiedAt,
+      required this.createdAt});
 
   Notifications.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     userId = json['user_id'];
     title = json['title'];
     message = json['message'];
-    seen = json['seen']??false;
+    seen = json['seen'] ?? false;
     modifiedAt = json['modified_at'];
     createdAt = json['created_at'];
   }

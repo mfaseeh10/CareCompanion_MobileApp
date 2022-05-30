@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/screens/login/login_page.dart';
+import 'package:med_delivery_fyp/screens/portal_select/portal_select_screen.dart';
 import '../../helper/data.dart';
 import '../home/home.dart';
 import 'package:med_delivery_fyp/shared_widgets/shared_widgets.dart';
@@ -64,8 +65,10 @@ class _WalkthroughState extends State<Walkthrough> {
                     DefaultButton(
                       text: "Continue",
                       press: () {
+                        // Navigator.pushReplacementNamed(
+                        //     context, LoginPage.routeName);
                         Navigator.pushReplacementNamed(
-                            context, LoginPage.routeName);
+                            context, PortalSelectScreen.routeName);
                       },
                     ),
                     Spacer(),

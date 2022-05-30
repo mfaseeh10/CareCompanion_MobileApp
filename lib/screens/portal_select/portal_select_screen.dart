@@ -1,19 +1,18 @@
 //import 'package:doctor_appointment_booking/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/forgot/forgot_password_page.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
+import 'package:med_delivery_fyp/screens/login/login_page.dart';
+import 'package:med_delivery_fyp/screens/rider_app/rider_login/rider_login_page.dart';
 import 'package:med_delivery_fyp/screens/signup/signup_page.dart';
-import 'package:med_delivery_fyp/shared_widgets/custom_appbar.dart';
 import 'package:med_delivery_fyp/shared_widgets/custom_button.dart';
-import 'package:med_delivery_fyp/shared_widgets/custom_icons.dart';
-import 'package:med_delivery_fyp/shared_widgets/social_icon.dart';
+
 import 'package:med_delivery_fyp/shared_widgets/text_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  static String routeName = "/login";
+class PortalSelectScreen extends StatelessWidget {
+  static String routeName = "/portalSelect";
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +78,10 @@ class LoginPage extends StatelessWidget {
                         ],
                       ),
                       SizedBox(
-                        height: getProportionateScreenHeight(30),
+                        height: getProportionateScreenHeight(60),
                       ),
                       Text(
-                        'Sign in',
+                        'Are you a?',
                         style: TextStyle(
                           color: Colors.black54,
                           fontSize: 28,
@@ -91,82 +90,14 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: getProportionateScreenHeight(30),
+                        height: getProportionateScreenHeight(15),
                       ),
-                      WidgetSignin(),
-                      Center(
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushNamed(ForgotPasswordPage.routeName);
-                          },
-                          child: Text(
-                            'Forgot your password?',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 12,
-                              fontFamily: 'Muli',
-                            ),
-                          ),
-                        ),
-                      ),
-                      Center(
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text(
-                            'Not a user?',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 12,
-                              fontFamily: 'Muli',
-                            ),
-                          ),
-                        ),
-                      ),
+                      WidgetPortal(),
                       Expanded(
                         child: SizedBox(
                           height: 5,
                         ),
                       ),
-                      SafeArea(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              'You dont have an account ?',
-                              style: TextStyle(
-                                color: Color(0xffbcbcbc),
-                                fontSize: 12,
-                                fontFamily: 'NunitoSans',
-                              ),
-                            ),
-                            Text('   '),
-                            InkWell(
-                              borderRadius: BorderRadius.circular(2),
-                              onTap: () {
-                                Navigator.of(context)
-                                    .pushNamed(SignupPage.routeName);
-                              },
-                              child: Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: Text(
-                                  'Register now',
-                                  style: TextStyle(
-                                    color: kPrimaryColor,
-                                    fontSize: 12,
-                                    fontFamily: 'Poppins-Bold',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      )
                     ],
                   ),
                 ),
@@ -179,49 +110,35 @@ class LoginPage extends StatelessWidget {
   }
 }
 
-class WidgetSignin extends StatefulWidget {
+class WidgetPortal extends StatefulWidget {
   @override
-  _WidgetSigninState createState() => _WidgetSigninState();
+  _WidgetPortalState createState() => _WidgetPortalState();
 }
 
-class _WidgetSigninState extends State<WidgetSignin> {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
+class _WidgetPortalState extends State<WidgetPortal> {
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        Text(
-          'Email:',
-          style: kInputTextStyle,
-        ),
-        CustomTextFormField(
-          controller: _emailController,
-          hintText: 'faseeh@gmail.com',
-          obscureText: false,
-        ),
         SizedBox(
-          height: 20,
+          height: 35,
         ),
-        Text(
-          'Password:',
-          style: kInputTextStyle,
-        ),
-        CustomTextFormField(
-          controller: _passwordController,
-          hintText: '* * * * * *',
-          obscureText: true,
+        CustomButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(LoginPage.routeName);
+          },
+          text: 'User',
         ),
         SizedBox(
           height: 35,
         ),
         CustomButton(
           onPressed: () {
-            Navigator.of(context).popAndPushNamed(Home.routeName);
+            Navigator.of(context)
+                .pushReplacementNamed(RiderLoginPage.routeName);
           },
-          text: 'Login',
+          text: 'Rider',
         )
       ],
     );

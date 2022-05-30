@@ -8,6 +8,8 @@ import 'package:med_delivery_fyp/model/product_type.dart';
 import 'package:med_delivery_fyp/model/review.dart';
 import 'package:med_delivery_fyp/model/user.dart';
 
+import '../model/rider.dart';
+
 class AppData {
   static List<Map<String, String>> splashData = [
     {
@@ -177,6 +179,17 @@ class AppData {
     userImage:
         'https://image.shutterstock.com/image-photo/close-portrait-young-happy-cheerful-260nw-609133178.jpg',
     address: 'plot sc111, 8th Street, Arizona',
+  );
+
+  static Rider rider_1 = Rider(
+    id: 11889,
+    firstName: 'Saad',
+    lastName: 'Saleem',
+    userEmail: 'saad@gmail.com',
+    username: 'saad2001',
+    contactNo: '+92 300 0000000',
+    userImage:
+        'https://image.shutterstock.com/image-photo/close-portrait-young-happy-cheerful-260nw-609133178.jpg',
   );
 
   static List<OrderDetail> orderDetailData = [

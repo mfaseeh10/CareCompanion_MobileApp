@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/cart/cart_screen.dart';
-import 'package:med_delivery_fyp/screens/home/components/app_bar_title_widget.dart';
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final int pageNo;

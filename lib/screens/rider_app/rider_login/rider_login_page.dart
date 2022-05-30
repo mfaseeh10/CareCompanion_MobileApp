@@ -1,19 +1,18 @@
 //import 'package:doctor_appointment_booking/routes/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:med_delivery_fyp/config/constants.dart';
 import 'package:med_delivery_fyp/config/size_config.dart';
 import 'package:med_delivery_fyp/screens/forgot/forgot_password_page.dart';
 import 'package:med_delivery_fyp/screens/home/home.dart';
+import 'package:med_delivery_fyp/screens/rider_app/rider_home/home.dart';
+import 'package:med_delivery_fyp/screens/rider_app/rider_signup/rider_signup_screen.dart';
 import 'package:med_delivery_fyp/screens/signup/signup_page.dart';
-import 'package:med_delivery_fyp/shared_widgets/custom_appbar.dart';
 import 'package:med_delivery_fyp/shared_widgets/custom_button.dart';
-import 'package:med_delivery_fyp/shared_widgets/custom_icons.dart';
-import 'package:med_delivery_fyp/shared_widgets/social_icon.dart';
+
 import 'package:med_delivery_fyp/shared_widgets/text_form_field.dart';
 
-class LoginPage extends StatelessWidget {
-  static String routeName = "/login";
+class RiderLoginPage extends StatelessWidget {
+  static String routeName = "/riderLogin";
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +34,8 @@ class LoginPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            height: getProportionateScreenHeight(250),
-                            width: getProportionateScreenWidth(200),
+                            height: getProportionateScreenHeight(200),
+                            width: getProportionateScreenWidth(150),
                             child: Image.asset(
                               'assets/images/delivery.png',
                               scale: 1,
@@ -57,10 +56,10 @@ class LoginPage extends StatelessWidget {
                                       TextSpan(
                                         text: 'Care',
                                         style: TextStyle(
-                                          color: kPrimaryColor,
-                                          fontSize: 28,
-                                          fontWeight: FontWeight.bold,
-                                        ),
+                                            color: kPrimaryColor,
+                                            fontSize: 28,
+                                            fontWeight: FontWeight.bold,
+                                            fontFamily: 'Muli'),
                                       ),
                                       TextSpan(
                                         text: 'Companion',
@@ -68,6 +67,7 @@ class LoginPage extends StatelessWidget {
                                           color: Colors.grey,
                                           fontSize: 28,
                                           fontWeight: FontWeight.w700,
+                                          fontFamily: 'Muli',
                                         ),
                                       ),
                                     ],
@@ -77,6 +77,20 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                         ],
+                      ),
+                      SizedBox(
+                        height: getProportionateScreenHeight(10),
+                      ),
+                      Center(
+                        child: Text(
+                          'Rider Portal',
+                          style: TextStyle(
+                            color: kPrimaryGrayColor.withOpacity(0.8),
+                            fontSize: 24,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: 'Muli',
+                          ),
+                        ),
                       ),
                       SizedBox(
                         height: getProportionateScreenHeight(30),
@@ -116,7 +130,7 @@ class LoginPage extends StatelessWidget {
                             Navigator.of(context).pop();
                           },
                           child: Text(
-                            'Not a user?',
+                            'Not a rider?',
                             style: TextStyle(
                               color: kPrimaryColor,
                               fontSize: 12,
@@ -147,7 +161,7 @@ class LoginPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(2),
                               onTap: () {
                                 Navigator.of(context)
-                                    .pushNamed(SignupPage.routeName);
+                                    .pushNamed(RiderSignupPage.routeName);
                               },
                               child: Padding(
                                 padding: const EdgeInsets.all(5),
@@ -219,7 +233,7 @@ class _WidgetSigninState extends State<WidgetSignin> {
         ),
         CustomButton(
           onPressed: () {
-            Navigator.of(context).popAndPushNamed(Home.routeName);
+            Navigator.of(context).pushNamed(RiderHome.routeName);
           },
           text: 'Login',
         )
